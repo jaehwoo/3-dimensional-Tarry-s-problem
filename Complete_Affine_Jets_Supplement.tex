@@ -1,0 +1,1628 @@
+\documentclass[11pt]{amsart}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{booktabs,longtable,array,enumitem}
+\usepackage{xr-hyper}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Claim}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\C}{\mathbb C}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\SO}{SO}
+\newcommand{\smin}{s_{\min}}
+\newcommand{\HS}{\mathrm{HS}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\Id}{I}
+\newcommand{\ind}{\mathbf1}
+\numberwithin{equation}{section}
+\allowdisplaybreaks[1]
+\setlength{\emergencystretch}{3em}
+\setcounter{tocdepth}{2}
+\raggedbottom
+\renewcommand{\thesection}{S\arabic{section}}
+\hypersetup{pdftitle={Supplement to Complete affine jets and sharp integrability in three variables I and II},pdfauthor={}}
+\title[Supplement: complete affine jets]{Supplement to Complete affine jets and sharp integrability in three variables I and II}
+\author{}
+\date{28 September 2026}
+\externaldocument[I:]{Complete_Affine_Jets_I}
+\externaldocument[II:]{Complete_Affine_Jets_II}
+\newcommand{\partIref}[1]{\hyperref[I:#1]{I.\ref*{I:#1}}}
+\newcommand{\partIeqref}[1]{\textup{(\partIref{#1})}}
+\newcommand{\partIIref}[1]{\hyperref[II:#1]{II.\ref*{II:#1}}}
+\newcommand{\partIIeqref}[1]{\textup{(\partIIref{#1})}}
+\begin{document}
+\maketitle
+This supplement contains the binary-cubic proof and finite coefficient certificates. References prefixed I and II refer to the respective companion papers; notation follows those papers.
+\tableofcontents
+
+\section{Planar and cubic supplementary arguments}
+
+\subsection{Jets and the planar decomposition}\label{pl:jet-calculus}
+Use $P_\xi$ and $Ea$ from Section~\partIref{pl:section} and the complete-jet conventions of Section~\partIref{an:jets} in dimension two, with $F=P_\xi$, $k=3$, and $(T_1,T_2,T_3)=(\ell_c^B,Q_c^B,C^B)$. Let $R_\theta$ be counterclockwise rotation through angle $\theta$ in the plane. Write
+\begin{equation}\label{pl:B-delta-tau}
+B=R_\theta D_{\delta,\tau},\qquad D_{\delta,\tau}=\operatorname{diag}(\delta,\delta/\tau),\qquad 0<\delta\le\tau\le1,
+\end{equation}
+\begin{equation}\label{pl:packet-area}
+V=\det B=\delta^2/\tau.
+\end{equation}
+Use $L_R$ as in Section~\partIref{an:jets}. The amplitude support lies in $U_{\rm pl}=(-1,2)^2$, and, for $R\ge2$, put
+\begin{equation}\label{pl:annulus}
+A_R=\{\xi:R\le1+|\xi|<2R\}.
+\end{equation}
+Lemma~\partIref{an:character}, with $d=2$ and $k=3$, gives $\chi_{2,3}=10$ and, in the fixed tensor coordinates,
+\begin{equation}\label{pl:jet-measure}
+d\xi\sim V^{-10}\,d\ell\,dQ\,dC.
+\end{equation}
+
+\subsubsection{Maximal frames and stopping}\label{pl:maximal-frames}
+A frame is a matrix in $\mathrm{GL}^+(2,\R)$; changing it by a right orthogonal matrix leaves its physical ellipse unchanged.
+
+A frame is admissible at $c$ if
+\begin{equation}\label{pl:admissible-frame}
+\|B\|_{\mathrm{op}}\le1,\qquad \|Q_c^B\|\le1,\qquad \|C^B\|\le1.
+\end{equation}
+The cap $1$ is a fixed physical scale. A determinant-maximal frame maximizes $\det B$ under these conditions. The joint contraction map is
+\begin{equation}\label{pl:contraction-map}
+\mathcal A_{Q,C}v=(Qv,\iota_vC),\qquad v\in\R^2.
+\end{equation}
+
+\begin{lemma}[Existence of maximal frames]\label{pl:maximal-existence}\label{pl:maximal-stopping}
+At every center there is an admissible frame of maximal positive determinant.
+\end{lemma}
+
+\begin{proof}
+Allowing singular matrices makes the set in \eqref{pl:admissible-frame} compact. A sufficiently small scalar multiple of the identity is admissible and has positive determinant. The maximum is therefore attained at an invertible matrix; reversing one column if necessary gives positive determinant.
+
+\end{proof}
+
+Fix a sufficiently small absolute constant $c_0>0$. For a bounded pair of tensors $(Q,C)$, the full contraction stopping condition is
+\begin{equation}\label{pl:full-rank-stop}
+s_{\min}(\mathcal A_{Q,C})\ge c_0.
+\end{equation}
+The short-direction stopping condition, with unit short direction $v_1$, is
+\begin{equation}\label{pl:short-stop}
+|Qv_1|+\|\iota_{v_1}C\|\ge c_0.
+\end{equation}
+The constant $c_0$ may be decreased when a coefficient cell is enlarged. In the coordinates $B=R_\theta\operatorname{diag}(\delta,\delta/\tau)$, the short direction is $e_1$. We distinguish the region $\delta/\tau\le1/4$, where both physical directions are small, from the region $\delta/\tau>1/4$, where the long physical direction has fixed size. References below to the planar cap mean this latter region.
+
+Maximality alone does not give a locally comparable choice of frames. For example, let $P(r,s)=Rrs$ and $\eta=(\sqrt2R)^{-1}$. Both $\operatorname{diag}(\eta,1)$ and $\operatorname{diag}(1,\eta)$ are determinant-maximal, but their relative matrix has norm $\eta^{-1}$. Indeed, $H=R\left(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\right)$ and
+\[
+\|A^THA\|_{\mathrm{HS}}^2\ge2|\det(A^THA)|=2R^2(\det A)^2.
+\]
+The two displayed frames attain the resulting determinant bound. Dividing arbitrary adapted bumps on these ellipses by their sum need not preserve derivative bounds. The regularized selection is constructed in Proposition~\ref{pl:regularized-frames}.
+
+\subsubsection{The planar decomposition}
+\begin{theorem}[Affine frequency decomposition]\label{pl:packet-resolution}\label{pl:decomposition}
+There is an absolute $A_{\rm ov}$ such that the following assertions hold for $0<\beta<10^{-3}$, $K=R^\beta$, and sufficiently large $R$.
+
+\noindent\textup{(i)} A finite coefficient-independent family $(c_j,B_j)$ has cutoffs $\psi_j(u,\xi)$ that are Borel in $(u,\xi)$ and smooth in $u$ for each fixed $\xi$, satisfying the exact partition, cutoff derivative, and mass bounds of Proposition~\ref{pl:physical-reconstruction}, with $\rho\sim L_R^{-2}$.
+
+\noindent\textup{(ii)} There are $O(L_R^2)$ types $\mathfrak t$, each fixing the actual semiaxes and small quadratic and cubic coefficient cells. Write $\mathcal J_{\mathfrak t}$ for all labels of type $\mathfrak t$, and let $\kappa>0$ be the fixed lower-frame constant. Its labels $J=(j,\gamma_Q,\gamma_C)$ have containing windows
+\begin{equation}\label{pl:frequency-box}
+\Omega_J=A_R\cap\{\xi:|\ell_{c_j}^{B_j}|\le CK,\ Q_{c_j}^{B_j}\in\gamma_Q^+,\ C^{B_j}\in\gamma_C^+\},
+\end{equation}
+where $+$ is a fixed enlargement, and
+\begin{equation}\label{pl:retained-range}
+\kappa R^{-1}\le\delta\lesssim R^{-1/3},\qquad \delta\le\tau\le1,\qquad V=\delta^2/\tau,
+\end{equation}
+\begin{equation}\label{pl:bounded-overlap}
+\#\mathcal J_{\mathfrak t}\lesssim L_R^C\tau^{-1}V^{-1},\qquad |\Omega_J|\lesssim K^2V^{-10},\qquad \sup_\xi\sum_{J\in\mathcal J_{\mathfrak t}}\mathbf1_{\Omega_J}(\xi)\lesssim_\beta K^{A_{\rm ov}}.
+\end{equation}
+
+\noindent\textup{(iii)} For $a\in C_c^\infty(U_{\rm pl})$, define
+\[
+E_Ja(\xi)=\mathbf1_{\gamma_Q}(Q_{c_j}^{B_j}(\xi))\,\mathbf1_{\gamma_C}(C^{B_j}(\xi))\int_{\mathbb R^2}a(u)\psi_j(u,\xi)\exp(2\pi iP_\xi(u))\,du.
+\]
+Here the half-open cells $\gamma_Q,\gamma_C$ form the fixed partition of the higher-jet region; their enlargements are used only for the containing windows $\Omega_J$. For every $M>0$, on $A_R$,
+\begin{equation}\label{pl:packet-decomposition}
+Ea(\xi)=\sum_{\mathfrak t}\sum_{J\in\mathcal J_{\mathfrak t}}E_Ja(\xi)\mathbf1_{\Omega_J}(\xi)+e_R(\xi),\qquad |e_R(\xi)|\lesssim_{M,\beta,a} R^{-M},
+\end{equation}
+\begin{equation}\label{pl:packet-trivial}
+|E_Ja(\xi)|\lesssim_a\rho^2V\lesssim_a V.
+\end{equation}
+All amplitude constants use finitely many smooth seminorms, and $A_{\rm ov}$ is independent of $\beta$.
+\end{theorem}
+
+Subsection~\ref{sup:planar-proof} constructs the regularized frames and physical partition. The three bounds in~\eqref{pl:bounded-overlap} follow from the retained-state count~\eqref{pl:library-count}, the window volume bound in Corollary~\ref{pl:box-volume}, and the coupled center--frame overlap in Proposition~\ref{pl:coupled-overlap}, respectively.
+
+\subsection{Planar jet calculus and endpoint sharpness}\label{sup:planar-calculus}
+This supplement retains the coefficient formulas, window widths, and endpoint construction used in Section~\partIref{pl:section}.
+
+For $c'=c+Bz$, the degree-three case of main-text~\partIeqref{an:taylor-transport} gives
+\begin{align}
+C^B_{c'}&=C^B,\label{pl:C-translation}\\
+Q^B_{c'}&=Q_c^B+\iota_zC^B,\label{pl:Q-translation}\\
+\ell^B_{c'}&=\ell_c^B+Q_c^Bz+\frac12C^B[z,z,\cdot].\label{pl:L-translation}
+\end{align}
+In particular,
+\begin{equation}\label{pl:L-symmetric}
+\ell^B_{c'}-\ell_c^B=\frac12(Q_c^B+Q^B_{c'})z.
+\end{equation}
+Right changes $B\mapsto BG$ act on each tensor by $T_r\mapsto T_r[G,\ldots,G]$, as in main-text Definition~\partIref{def:complete-jet}.
+
+\begin{corollary}[Widths and volume]\label{pl:box-volume}
+The windows in \eqref{pl:frequency-box} satisfy
+\begin{equation}\label{pl:frequency-volume}
+|\Omega_J|\lesssim K^2V^{-10}.
+\end{equation}
+In Taylor coordinates at $c$, followed by rotation through $\theta$, the widths of an enclosing coefficient box are, up to fixed cell-size factors,
+\begin{equation}\label{pl:raw-widths}
+\begin{array}{c|l}
+\text{block}&\text{widths}\\ \hline
+\text{linear}&K\delta^{-1},\quad K\tau\delta^{-1}\\[1mm]
+\text{quadratic}&\delta^{-2},\quad\tau\delta^{-2},\quad\tau^2\delta^{-2}\\[1mm]
+\text{cubic}&\delta^{-3},\quad\tau\delta^{-3},\quad\tau^2\delta^{-3},\quad\tau^3\delta^{-3}.
+\end{array}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The diagonal frame multiplies a coefficient of $x_1^{m-j}x_2^j$ by $\delta^m\tau^{-j}$. Inverting these factors gives \eqref{pl:raw-widths}. Their product is
+\begin{equation}\label{pl:width-product}
+K^2\delta^{-20}\tau^{10}=K^2V^{-10}.
+\end{equation}
+The volume also follows directly from Lemma~\partIref{an:character}. Intersecting with $A_R$ can only decrease it.
+\end{proof}
+
+The widths in \eqref{pl:raw-widths} are not generally projection widths in the original coefficient axes: changing the Taylor center shears the box. The higher-degree cells need not be centered at zero.
+
+\paragraph{The lower bound.}\label{pl:sharpness}
+We give a lower bound independent of the packet selection. Let $\Lambda$ be a sufficiently large dyadic integer, and choose
+\begin{equation}\label{pl:lower-grids}
+\theta_m=\frac{m}{100\Lambda},\quad -\Lambda\le m\le\Lambda,
+\qquad w_n=\frac14+\frac{n}{2\Lambda},\quad0\le n\le\Lambda.
+\end{equation}
+The parameter $\theta_m$ here is the small slope in a shear coordinate. For each $(m,n)$ put $z=r+\theta_ms-w_n$. Every phase has a unique expression
+\begin{equation}\label{pl:lower-normal-form}
+P_\xi(r,s)=Az^3+b(s)z^2+c(s)z+d(s),
+\qquad \deg b\le1,\quad\deg c\le2,\quad\deg d\le3.
+\end{equation}
+The nine free coordinates are $A$, the two coefficients of $b$, the three coefficients of $c$, and the three nonconstant coefficients of $d$. Since $P_\xi(0,0)=0$, the remaining coefficient is determined by
+\[
+d(0)=Aw_n^3-b(0)w_n^2+c(0)w_n.
+\]
+For a small fixed $\varepsilon>0$, let $\Omega_{m,n,\Lambda}$ be the coefficient set defined by
+\begin{equation}\label{pl:lower-box}
+\begin{split}
+\Lambda^3\le A\le2\Lambda^3,\qquad
+\|b\|_{\ell^1}\le\varepsilon\Lambda^2,\qquad
+\|c\|_{\ell^1}\le\varepsilon\Lambda,\qquad
+\|d-d(0)\|_{\ell^1}\le\varepsilon.
+\end{split}
+\end{equation}
+Here $\ell^1$ denotes the sum of the absolute values of the ordinary polynomial coefficients. These sets are products of fixed-dimensional coefficient balls under a linear change of coordinates; using rectangular balls instead changes only constants.
+
+\begin{lemma}[Disjoint lower-bound coefficient sets]\label{pl:lower-boxes}
+For sufficiently small fixed $\varepsilon$,
+\[
+|\Omega_{m,n,\Lambda}|\asymp_\varepsilon\Lambda^{10},
+\qquad |\xi|\asymp\Lambda^3\quad(\xi\in\Omega_{m,n,\Lambda}),
+\]
+and the sets are pairwise disjoint as $(m,n)$ varies. They are also disjoint for distinct sufficiently large dyadic values of $\Lambda$.
+\end{lemma}
+
+\begin{proof}
+The affine shear and translation $(r,s)\mapsto(z,s)$ is invertible, so the nine free coefficients in \eqref{pl:lower-normal-form} are linear coordinates for the nonconstant part of the polynomial. Their coordinate map and inverse have uniformly bounded determinants for the compact range of $(\theta_m,w_n)$ under consideration. The volume is therefore comparable to
+\[
+\Lambda^3(\Lambda^2)^2\Lambda^3=\Lambda^{10}.
+\]
+The coefficient of $r^3$ in ordinary monomial notation is $A$, while all coefficients are $O(\Lambda^3)$. This proves $|\xi|\asymp\Lambda^3$, with the fixed factorial conversion understood.
+
+Suppose a coefficient vector lies in two such sets at the same $\Lambda$. The ordinary $r^3$ coefficient gives the same $A$ in both expressions. Write $b(s)=b_0+b_1s$. The $r^2s$ and $r^2$ coefficients of the phase are, respectively,
+\[
+3A\theta_m+b_1,\qquad -3Aw_n+b_0.
+\]
+Thus $3A|\theta_m-\theta_{m'}|\le2\varepsilon\Lambda^2$. The slope spacing is $1/(100\Lambda)$ and $A\ge\Lambda^3$, so $m=m'$ when $\varepsilon$ is sufficiently small. The second coefficient similarly gives $3A|w_n-w_{n'}|\le2\varepsilon\Lambda^2$, and the spacing $1/(2\Lambda)$ forces $n=n'$. Finally, the intervals $[\Lambda^3,2\Lambda^3]$ for the ordinary $r^3$ coefficient are disjoint when $\Lambda$ ranges over distinct dyadic values.
+\end{proof}
+
+\begin{lemma}[Uniform noncancellation of the cubic integral]\label{pl:lower-stationary-phase}
+For sufficiently small fixed $\varepsilon$ and all sufficiently large $\Lambda$,
+\begin{equation}\label{pl:lower-amplitude}
+|E1(\xi)|\gtrsim\Lambda^{-1},\qquad \xi\in\Omega_{m,n,\Lambda}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For a fixed $s\in[0,1]$, the range of $z$ is $[\theta_ms-w_n,1+\theta_ms-w_n]$. Its left endpoint is at most $-1/5$, and its right endpoint is at least $1/5$, uniformly in $(m,n,s)$. Write $A=\Lambda^3a_0$ with $1\le a_0\le2$, and use $t=\Lambda z$. After removing $e^{2\pi i d(s)}$, the integral in $r$ is
+\[
+\Lambda^{-1}\int_{\Lambda(\theta_ms-w_n)}^{\Lambda(1+\theta_ms-w_n)}
+e^{2\pi i(a_0t^3+\widetilde b(s)t^2+\widetilde c(s)t)}\,dt,
+\]
+where $\widetilde b=b/\Lambda^2$ and $\widetilde c=c/\Lambda$ have absolute value at most $\varepsilon$.
+
+Define
+\[
+\mathcal A(a_0,b_0,c_0)=\int_{\R}^{\mathrm{osc}}e^{2\pi i(a_0t^3+b_0t^2+c_0t)}\,dt.
+\]
+For $a_0\in[1,2]$ and $|b_0|+|c_0|\le2\varepsilon$, the phase derivative is bounded below by a fixed multiple of $t^2$ when $|t|$ is large. Integration by parts on either tail gives a bound $\lesssim T^{-2}$ beyond $|t|=T$, uniformly in these parameters. Indeed, the boundary term is $O(T^{-2})$ and the integral of the derivative of the reciprocal phase derivative is $O(\int_T^\infty t^{-3}\,dt)$. The oscillatory integral exists, is continuous in the parameters, and the finite interval above differs from it by $O(\Lambda^{-2})$.
+
+At $b_0=c_0=0$, substitution gives
+\[
+\mathcal A(a_0,0,0)=a_0^{-1/3}\mathcal A(1,0,0),
+\qquad
+\mathcal A(1,0,0)=\frac{2\Gamma(1/3)\cos(\pi/6)}{3(2\pi)^{1/3}}>0.
+\]
+For completeness, combine the positive and negative half-lines, put $v=2\pi t^3$ on the positive half-line, and use
+\[
+\lim_{\epsilon\downarrow0}\int_0^\infty v^{-2/3}e^{-(\epsilon-i)v}\,dv
+=\Gamma(1/3)e^{i\pi/6}.
+\]
+The last formula is the elementary Laplace integral for the gamma function; integration by parts on the tails identifies its Abel limit with the improper oscillatory integral. Taking the real part gives the displayed positive value.
+
+Let $a_*>0$ be the minimum of $\mathcal A(a_0,0,0)$ on $[1,2]$. Uniform continuity and $|d(s)-d(0)|\le\varepsilon$ allow $\varepsilon$ to be chosen so that
+\[
+\operatorname{Re}\bigl(e^{2\pi i(d(s)-d(0))}
+\mathcal A(a_0,\widetilde b(s),\widetilde c(s))\bigr)\ge a_*/2.
+\]
+The uniform $O(\Lambda^{-2})$ tail error preserves a positive lower bound for sufficiently large $\Lambda$. Integrating in $s$ and removing the common factor $e^{2\pi i d(0)}$ proves \eqref{pl:lower-amplitude}.
+\end{proof}
+
+\subsection{Proof of the planar decomposition}\label{sup:planar-proof}
+We prove Theorem~\ref{pl:decomposition}, including the frame selection, the physical reconstruction, and the count for the fixed coefficient windows. Use the notation of Subsection~\ref{pl:jet-calculus} and Section~\partIref{pl:section}.
+
+\subsubsection{Comparison of selected affine frames}\label{pl:frames}
+Use the admissibility and stopping conditions of Subsection~\ref{pl:maximal-frames}. We construct the regularized frames for the physical partition.
+
+Fix $X=[-3,4]^2$ and $|\xi|\le2R$. Use the functional~\partIeqref{an:energy} in dimension two with $F=P_\xi$, $k=3$, and $C_0=\varepsilon_*^{-1}$, where $\varepsilon_*>0$ is a sufficiently small fixed constant. Thus
+\begin{equation}\label{pl:regularized-functional}
+\lambda=\varepsilon_*L_R^{-2},\qquad \mathcal F_{\lambda,c}(B)=\mathscr E_{P_\xi,c}(B).
+\end{equation}
+Denote the positive definite representative of its minimizing ellipsoid by $B_\lambda(c)$, suppressing its dependence on $\xi$. The squared tensor norms are convex along $B_0e^{tA}$ for $A=A^T$, as in the proof of main-text Lemma~\partIref{an:minimizer}. Main-text Lemma~\partIref{an:log-hessian} therefore gives
+\begin{equation}\label{pl:strong-convexity}
+\frac{d^2}{dt^2}\mathcal F_{\lambda,c}(B_0e^{tA})\ge8\lambda\|A\|_{\mathrm{HS}}^2.
+\end{equation}
+
+\begin{proposition}[Regularized frames and local comparison]\label{pl:regularized-frames}
+The functional \eqref{pl:regularized-functional} has a unique minimizing ellipsoid, continuous in $(\xi,c)$. Write $B=B_\lambda(c)$, $Q=Q_c^B$, $C=C^B$, and
+\[
+(G_C)_{ij}=\sum_{k,l=1}^2C_{ikl}C_{jkl}.
+\]
+Then
+\begin{equation}\label{pl:regularized-balance}
+B^TB+2Q^2+3G_C+2\lambda\log(B^TB)=I_2,
+\end{equation}
+\begin{equation}\label{pl:regularized-bounds}
+\|B\|_{\mathrm{op}}\le1,\qquad \|Q\|+\|C\|\le C_1,
+\end{equation}
+and
+\begin{equation}\label{pl:regularized-volume}
+s_{\min}(B)\ge\kappa_0R^{-1},\qquad
+\det B\asymp\max_{A\text{ admissible at }c}\det A.
+\end{equation}
+The constants are independent of $R,\xi,c$. If $c'=c+Bh\in X$ and $|h|\le1$, then
+\begin{equation}\label{pl:frame-comparison}
+B_\lambda(c')=Be^AO,
+\qquad A=A^T,
+\qquad \|A\|_{\mathrm{HS}}\lesssim \lambda^{-1}|h|,
+\end{equation}
+for an orthogonal $O$. Finally, $B$ satisfies full contraction stopping when its long singular value is at most $1/4$, and short-direction stopping when its short singular value is at most $1/4$, with fixed positive constants.
+\end{proposition}
+
+\begin{proof}
+The proof of main-text Lemma~\partIref{an:minimizer} applies in dimension two and gives the unique minimizing ellipsoid and its continuous dependence on $(\xi,c)$. Its first variation gives~\eqref{pl:regularized-balance}, since $G_2=Q^2$ and $G_3=G_C$. Write $b_1,b_2$ for the singular values of $B$. Testing the balance identity on their right singular vectors gives $b_i\le1$.
+
+Let $A_*$ be determinant-maximal. On $X$ the unscaled quadratic and cubic tensors are $O(R)$, so $cR^{-1/2}I_2$ is admissible for a sufficiently small fixed $c$. Hence $\det A_*\gtrsim R^{-1}$ and $s_{\min}(A_*)\ge\det A_*\gtrsim R^{-1}$. It follows that
+\[
+\mathcal F_{\lambda,c}(A_*)\le4-2\log\det A_*+C\lambda L_R^2\lesssim L_R.
+\]
+Minimality and $b_i\le1$ imply $|\log b_i|\lesssim L_R$. Taking the trace in \eqref{pl:regularized-balance} now bounds $\|Q\|+\|C\|$ by a fixed constant. Moreover,
+\[
+-2\log\det B\le\mathcal F_{\lambda,c}(B)
+\le-2\log\det A_*+C,
+\]
+so $\det B\gtrsim\det A_*$. Conversely, a fixed scalar contraction of $B$ is admissible by the tensor bounds, which gives $\det B\lesssim\det A_*$. Since $b_i\le1$, the determinant lower bound also gives $s_{\min}(B)\gtrsim R^{-1}$. We have proved \eqref{pl:regularized-bounds}--\eqref{pl:regularized-volume}. The balance error satisfies
+\begin{equation}\label{pl:balance-error}
+\|B^TB+2Q^2+3G_C-I_2\|_{\mathrm{op}}
+\lesssim\lambda L_R.
+\end{equation}
+
+For local comparison, polar decomposition gives $B_\lambda(c')=Be^AO$ with $A$ symmetric. At the original frame $B$, changing $c$ to $c'$ replaces $Q$ by $Q+\iota_hC$ and leaves the other terms of the functional unchanged. The difference of its directional first variations is
+\[
+4\operatorname{tr}\bigl(((Q+\iota_hC)^2-Q^2)A\bigr),
+\]
+whose absolute value is $\lesssim |h|\|A\|_{\mathrm{HS}}$ for $|h|\le1$. Put $g(t)=\mathcal F_{\lambda,c'}(Be^{tA})$. Since $g'(1)=0$ and the first variation for $c$ vanishes at $B$, \eqref{pl:strong-convexity} gives
+\[
+8\lambda\|A\|_{\mathrm{HS}}^2
+\le g'(1)-g'(0)
+\lesssim |h|\|A\|_{\mathrm{HS}}.
+\]
+This proves \eqref{pl:frame-comparison}.
+
+Finally $\log(B^TB)$ is negative semidefinite, so \eqref{pl:regularized-balance} implies
+\[
+2Q^2+3G_C\ge I_2-B^TB.
+\]
+The right side is at least $15I_2/16$ if the long side is at most $1/4$, and has quadratic form at least $15/16$ on a short singular vector of length at most $1/4$. Since $v^TG_Cv=\|\iota_vC\|^2$, these are the asserted stopping inequalities.
+\end{proof}
+
+\paragraph{A fixed family and a partition of unity}
+\label{pl:physical-partition}
+
+Put $U_{\rm pl}=(-1,2)^2$. For the upper bound, fix $a\in C_c^\infty(U_{\rm pl})$. The choices of frames and cutoffs below depend on $R$ and on the phase, but the list of possible centers and frames is independent of $\xi$. Choose sufficiently small fixed constants $\eta_0,c_1,c_2>0$, in that order as needed below, and put
+\begin{equation}\label{pl:carrier-scales}
+\rho=c_1\lambda,\qquad \zeta=c_2\rho.
+\end{equation}
+The phase is normalized in the parent frame $B_j$, whereas the smooth cutoff is supported in a smaller supporting ellipsoid of size $\rho B_j$. In particular, the frequency volume will continue to use $\det B_j$, not $\det(\rho B_j)$.
+
+\begin{proposition}[Physical reconstruction]\label{pl:physical-reconstruction}
+There is a finite family of centers and frames $(c_j,B_j)$, independent of $\xi$, and nonnegative functions $\psi_j(u,\xi)$, smooth in $u$ and Borel measurable in $\xi$, such that, for $|\xi|\le2R$,
+\begin{equation}\label{pl:physical-identity}
+a(u)=\sum_j a(u)\psi_j(u,\xi),
+\end{equation}
+\begin{equation}\label{pl:carrier-support}
+\operatorname{supp}_u\psi_j(\cdot,\xi)\subset c_j+\rho B_j\mathbb B^2,
+\end{equation}
+and, for every multi-index $\alpha$,
+\begin{equation}\label{pl:cutoff-derivatives}
+\bigl\|\partial_z^\alpha\psi_j(c_j+\rho B_jz,\xi)\bigr\|_\infty\lesssim_\alpha 1.
+\end{equation}
+The nonzero cutoffs have bounded physical overlap, and
+\begin{equation}\label{pl:physical-volume-sum}
+\sum_{j:\,\psi_j(\cdot,\xi)\ne0}\rho^2V_j\lesssim1,
+\qquad V_j=\det B_j.
+\end{equation}
+Each frame has the form $B_j=R_\theta D_{\delta,\tau}$ with $\kappa R^{-1}\le\delta\le\delta/\tau\le1$. The number of actual semiaxis pairs is $O(L_R^2)$. For a fixed pair, the angles have spacing comparable to $\tau$, the centers at angle $\theta$ lie in $\zeta B_\theta\mathbb Z^2\cap[-2,3]^2$, and
+\begin{equation}\label{pl:library-count}
+\#\{j:\text{fixed semiaxes}\}\lesssim\zeta^{-2}\tau^{-1}V^{-1}.
+\end{equation}
+Every active frame satisfies bounded higher-jet estimates and
+\begin{equation}\label{pl:library-balance}
+\bigl\|B_j^TB_j+2(Q_{c_j}^{B_j})^2+3G_{C^{B_j}}-I_2\bigr\|_{\mathrm{op}}\le\tfrac1{10}.
+\end{equation}
+Consequently it has full stopping if its long side is at most $1/4$, and short-direction stopping if its short side is at most $1/4$.
+\end{proposition}
+
+\begin{proof}
+\emph{The fixed family.} Round the singular values in Proposition \ref{pl:regularized-frames} down to a fixed sufficiently fine relative mesh in $[\kappa_0R^{-1}/2,1]$. This gives $O(L_R^2)$ ordered pairs $(d_1,d_2)$ with $d_1\le d_2$. Write $\delta=d_1$ and $\tau=d_1/d_2$. Use a cyclic angular net with spacing between $h\tau/2$ and $h\tau$, where $h>0$ is a sufficiently small fixed constant. Indeed, for $|\theta-\theta'|\le h\tau$, the matrix $D_{\delta,\tau}^{-1}R_{\theta-\theta'}D_{\delta,\tau}$ differs from $I_2$ by $O(h)$ in operator norm. Use centers in $\zeta B_\theta\mathbb Z^2\cap[-2,3]^2$. A fundamental lattice parallelogram has area $\zeta^2V$ and bounded diameter; comparison with a fixed enlargement of the physical square gives $O(\zeta^{-2}V^{-1})$ centers at each angle. This proves \eqref{pl:library-count}.
+
+For a fixed $\xi$, call a frame from the fixed family eligible if
+\begin{equation}\label{pl:eligibility}
+\min_{O\in O(2)}\|B_\lambda(c_j)^{-1}B_jO-I_2\|_{\mathrm{op}}\le\eta_0.
+\end{equation}
+This is a Borel condition. Sufficiently small distance from $I_2$ forces positive relative determinant.
+
+\emph{Coverage and comparison.} At $u\in U_{\rm pl}$, approximate the ellipsoid of $B_\lambda(u)$ by a family shape and angle, with relative error at most $\eta_0/10$. Choose the nearest point $c_j$ of its center lattice. Then $|B_\lambda(u)^{-1}(c_j-u)|\lesssim\zeta$. Proposition \ref{pl:regularized-frames} gives relative distortion $O(\zeta/\lambda)$ between $B_\lambda(u)$ and $B_\lambda(c_j)$. Choosing $h$ and the relative mesh first, and then $c_2$ small, makes $j$ eligible. Also $|B_j^{-1}(u-c_j)|\lesssim\zeta$.
+
+If $u\in c_j+\rho B_j\mathbb B^2$ for an eligible $j$, then $|B_\lambda(c_j)^{-1}(u-c_j)|\lesssim\rho$. The same local comparison and \eqref{pl:eligibility} show that $B_j\mathbb B^2$ and $B_\lambda(u)\mathbb B^2$ contain fixed dilates of one another. By taking $\eta_0$ and $c_1$ small, both dilation factors can be made smaller than $4/3$. In particular, whenever two eligible carriers meet,
+\begin{equation}\label{pl:intersecting-carrier-comparison}
+\|B_i^{-1}B_j\|_{\mathrm{op}}+\|B_j^{-1}B_i\|_{\mathrm{op}}\lesssim 1.
+\end{equation}
+This comparison is between selected nearby physical frames for one phase; it is not inferred from intersection of frequency windows.
+
+Apply the disjoint-core selection in the proof of main-text Proposition~\partIref{an:resolution} to the eligible carriers, using~\eqref{pl:intersecting-carrier-comparison}. In a fixed order, retain disjoint cores $c_j+(\rho/100)B_j\mathbb B^2$ and write $\mathcal I(\xi)$ for the selected indices. The selection is Borel. Every rejected core meets a retained one; the frame comparison and $\zeta\ll\rho$ give coverage of $U_{\rm pl}$ by $c_j+(\rho/10)B_j\mathbb B^2$. The enlarged retained carriers have bounded overlap, and disjointness of the cores in the fixed physical square gives~\eqref{pl:physical-volume-sum}.
+
+Take a nonnegative $\phi\in C_c^\infty(\mathbb B^2/5)$ equal to one on $\mathbb B^2/10$, and put $\phi_j(u)=\phi(\rho^{-1}B_j^{-1}(u-c_j))$ and $S_\xi=\sum_{j\in\mathcal I(\xi)}\phi_j$. Then $1\le S_\xi\lesssim 1$ on $U_{\rm pl}$ and $0\le S_\xi\lesssim 1$ everywhere. Choose a nonnegative smooth function $r_*$ on $[0,\infty)$ equal to $1/s$ for $s\ge1/2$, with bounded derivatives near zero, and set
+\begin{equation}\label{pl:actual-cutoff}
+\psi_j(u,\xi)=\mathbf1_{\{j\in\mathcal I(\xi)\}}\phi_j(u)r_*(S_\xi(u)).
+\end{equation}
+This gives~\eqref{pl:physical-identity} and~\eqref{pl:carrier-support}. On the support of $\phi_j$, every contributing carrier has frame comparable to $B_j$ by~\eqref{pl:intersecting-carrier-comparison}. The chain-rule argument in the same common proof, together with bounded overlap, therefore gives~\eqref{pl:cutoff-derivatives} in the coordinates $u=c_j+\rho B_jz$.
+
+\emph{Stopping at frames from the fixed family.} At an eligible center, write $B_jO=B_\lambda(c_j)G$ with $\|G-I_2\|_{\mathrm{op}}\le\eta_0$. The tensor pullbacks and their Gram matrices change by $O(\eta_0)$, since the normalized tensors are bounded. Thus \eqref{pl:balance-error}, conjugated by $O$, gives an error $O(\lambda L_R+\eta_0)$ in \eqref{pl:library-balance}. Choose $\varepsilon_*,\eta_0$ so that this is at most $1/10$. If the long side is at most $1/4$, the quadratic form $2Q^2+3G_C$ is then at least $(1-1/10-1/16)I_2$. The same bound holds on $e_1$ when only the short side is at most $1/4$. This proves the asserted stopping conditions with a fixed margin.
+\end{proof}
+
+\begin{lemma}[Exact grouping of fine pieces]\label{pl:exact-grouping}
+Let $\{\varphi_I\}$ be a finite smooth partition equal to one near $\operatorname{supp}a$. For the cutoffs in Proposition \ref{pl:physical-reconstruction}, define
+\begin{equation}\label{pl:fine-parent-integral}
+\begin{split}
+E_{I,j}a(\xi)&=\int a(u)\varphi_I(u)\psi_j(u,\xi)e^{2\pi iP_\xi(u)}\,du,\\
+F_j(\xi)&=\int a(u)\psi_j(u,\xi)e^{2\pi iP_\xi(u)}\,du.
+\end{split}
+\end{equation}
+Then
+\begin{equation}\label{pl:grouping-identities}
+\sum_jE_{I,j}a=E(a\varphi_I),\qquad
+\sum_IE_{I,j}a=F_j,\qquad
+Ea=\sum_jF_j.
+\end{equation}
+For any parent coefficient mask $m_J(\xi)$, common to all its fine refinements, one also has $m_JF_j=\sum_I m_JE_{I,j}a$.
+\end{lemma}
+
+\begin{proof}
+Multiply \eqref{pl:physical-identity} by $\varphi_I$ and integrate for the first identity. For the second, sum the amplitudes before integration and use $\sum_I\varphi_I=1$ on the support of $a$. All sums are finite. The final assertion follows by factoring out the common mask.
+\end{proof}
+
+\begin{remark}[What the grouping uses]\label{pl:grouping-remark}
+The refined physical amplitude is $a\varphi_I\psi_j$. Its support may be only an intersection of the fine and parent carriers; neither $I\subset J$ nor a unique parent for a whole $I$ is required. The sum in $I$ is taken before absolute values and before differentiation. Thus derivatives of the fine cutoffs cancel through the identity $\sum_I a\varphi_I\psi_j=a\psi_j$, and no factor counting the fine pieces enters the estimate. Containment or comparability of coefficient boxes alone would not justify replacing independently chosen fine masks inside an oscillatory sum. Assigning the degreewise label at the parent makes the displayed grouping an identity.
+\end{remark}
+
+\begin{lemma}[Shrinking the linear window]\label{pl:shrinking}
+Suppose $b\in C_c^\infty(\mathbb B^2)$ has bounded seminorms and $\|Q\|+\|C\|\le C_0$. Then, for every integer $N\ge0$,
+\begin{equation}\label{pl:shrinking-estimate}
+\left|\int b(x)e^{2\pi i(\ell[x]+Q[x,x]/2+C[x,x,x]/6)}\,dx\right|
+\lesssim_{N,C_0} \|b\|_{C^{N+2}}(1+|\ell|)^{-N}.
+\end{equation}
+For the parent integrals in \eqref{pl:fine-parent-integral},
+\begin{equation}\label{pl:parent-decay}
+|F_j(\xi)|\lesssim_{N,a} \rho^2V_j(1+\rho|\ell_{c_j}^{B_j}(\xi)|)^{-N}.
+\end{equation}
+In particular,
+\begin{equation}\label{pl:carrier-tail}
+\sum_j|F_j(\xi)|\mathbf1_{\{|\ell_{c_j}^{B_j}(\xi)|>C K\}}
+\lesssim_{N,a} (\rho K)^{-N}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The nonstationary-phase argument in main-text Lemma~\partIref{an:linear-tail}, applied in two variables, gives~\eqref{pl:shrinking-estimate}. Under $u=c_j+\rho B_jx$, the phase tensors are $\rho\ell_{c_j}^{B_j}$, $\rho^2Q_{c_j}^{B_j}$ and $\rho^3C^{B_j}$. The normalized amplitude has bounded seminorms by~\eqref{pl:cutoff-derivatives} and $\|B_j\|_{\mathrm{op}}\le1$, and the physical Jacobian is $\rho^2V_j$. This proves~\eqref{pl:parent-decay}; summing with~\eqref{pl:physical-volume-sum} gives~\eqref{pl:carrier-tail}.
+\end{proof}
+
+\begin{remark}[Affine smooth profiles]
+An individual cutoff $\phi(\rho^{-1}B^{-1}(u-c))$ has uniform derivatives in its own coordinates, regardless of the eccentricity of $B$. The same Fourier argument works for a fixed Schwartz profile: derivatives of the nonlinear exponential grow only polynomially and are absorbed by its decay. Proposition \ref{pl:physical-reconstruction} gives the exact partition with uniform bounds after normalization by $S_\xi$. The frequency masks themselves may remain sharp, since integration by parts is only in the physical variable.
+\end{remark}
+
+\subsubsection{Counting admissible centers and orientations}\label{pl:coupled-overlap-section}
+We now count the explicit coefficient windows \eqref{pl:frequency-box}. The result concerns all states in one stopped type, so it also applies to any subfamily selected by the physical construction. No comparability of arbitrary frames with intersecting frequency windows is assumed. The count below uses polynomial formulas for the explicit jet maps on the fixed family. It imposes no such requirement on the map selecting the regularized minimizer.
+
+\paragraph{Two finite-dimensional counting facts.}
+
+A set is called \emph{semialgebraic} if membership can be described by finitely many polynomial equalities and inequalities, combined using ``and'', ``or'', and ``not''. The coefficients in these conditions may be arbitrary real numbers. The Tarski--Seidenberg projection theorem says that forgetting some coordinates of such a set again gives a set with a finite description of this kind. Thus auxiliary variables in polynomial conditions can be eliminated. In particular, it applies to the minimum specified by polynomial conditions in the next proof.
+
+\begin{lemma}[Polynomial lower bound]\label{pl:semialgebraic-coercivity}
+Let $X_0$ be a nonempty compact semialgebraic set, and let $M(x,y)$ be a real matrix whose entries are polynomial in $(x,y)\in X_0\times\R^q$. Suppose that $M(x,y)$ has full column rank for every $(x,y)$. There is $A<\infty$ such that
+\begin{equation}\label{pl:coercivity}
+s_{\min}(M(x,y))\gtrsim_{M,X_0}(1+|y|)^{-A}.
+\end{equation}
+The exponent depends on the fixed matrix family and on $X_0$.
+\end{lemma}
+
+\begin{proof}
+For $r\ge1$, let
+\[
+h(r)=\min\bigl(1,\min_{x\in X_0,\ |y|\le r}s_{\min}(M(x,y))\bigr).
+\]
+Compactness and the rank assumption give $0<h(r)\le1$. The graph of $h$ is semialgebraic by the Tarski--Seidenberg projection theorem. To express the singular-value condition by polynomial inequalities, use the Gram matrix $M^TM$: for $t\ge0$, the inequality $s_{\min}(M)\ge t$ means that $M^TM-t^2I$ is positive semidefinite, which is equivalent to nonnegativity of all its principal minors. Here a principal minor is a determinant obtained by choosing the same set of row and column indices. The statements that a value is attained and that no smaller value occurs can therefore be expressed with polynomial conditions and auxiliary variables, which the projection theorem eliminates. We recall the consequence needed for the quantitative step. A finite description of the graph uses finitely many nonzero polynomials in $(r,t)$. At every graph point at least one of them vanishes, since otherwise their signs would be constant on a neighborhood and the graph would have interior. Their product is a nonzero polynomial $P$ satisfying $P(r,h(r))=0$.
+
+Factor out the largest common power of $t$ and write
+\[
+P(r,t)=t^j\bigl(p_j(r)+p_{j+1}(r)t+\cdots+p_m(r)t^{m-j}\bigr),
+\qquad p_j\not\equiv0.
+\]
+For sufficiently large $r$, $|p_j(r)|\gtrsim r^{\deg p_j}$ and every $|p_k(r)|\lesssim r^D$ for a fixed $D$. Since $h(r)>0$, division by $h(r)^j$ gives $|p_j(r)|\lesssim r^D h(r)$. Thus $h(r)\gtrsim r^{-A}$ for a sufficiently large $A$. A smaller positive constant covers the remaining compact range of $r$. This proves \eqref{pl:coercivity}. The semialgebraic projection theorem used here is standard; see \cite{BPR}.
+\end{proof}
+
+\begin{lemma}[Volume from polynomial solution counts]\label{pl:rational-volume}
+Let $F:U\to\R^n$ be a rational map on an open subset of $\R^k$, $1\le k\le n$; this means that each component of $F$ is a quotient of two polynomials. Suppose every numerator and denominator has degree at most $D$, and denominators do not vanish on $U$. Let $E\subset U$ be measurable, and suppose that at every point of $E$ at least one $k\times k$ coordinate minor of $DF$ has absolute value at least $\kappa>0$. If $F(E)\subset W$ and every coordinate $k$-dimensional projection of $W$ has measure at most $V_W$, then
+\begin{equation}\label{pl:rational-volume-bound}
+|E|\lesssim_{k,n,D} \kappa^{-1}V_W.
+\end{equation}
+The constant does not depend on the coefficients of the rational map or on the size of $U$.
+\end{lemma}
+
+\begin{proof}
+Partition $E$ into finitely many measurable pieces by choosing a coordinate minor. On one piece $E_\pi$, put $H=\pi\circ F:U\to\R^k$, so that $|\det DH|\ge\kappa$. For a fixed $y$, we count the solutions of $H(x)=y$ with nonzero Jacobian. Writing a component as $H_i=P_i/Q_i$, its equation becomes $P_i-y_iQ_i=0$. Clearing denominators therefore gives $k$ polynomial equations of degree at most $D$. At a point with $\det DH\ne0$, the cleared system has nonzero Jacobian, because its derivative is $DH$ multiplied by the nonzero denominators in the rows. Such a solution is called nonsingular: its Jacobian matrix is invertible, so the inverse function theorem makes it isolated.
+
+The number of these solutions is at most $D^k$, by the classical B\'ezout bound for $k$ polynomial equations in $k$ variables. Other solutions may lie on curves or on sets of higher dimension; they do not invalidate this count. Indeed, any fixed finite collection of nonsingular solutions persists under sufficiently small perturbations of the coefficients, by the implicit function theorem. The perturbation can be chosen outside the exceptional polynomial conditions on the coefficients so that the perturbed system has finitely many complex solutions. B\'ezout's bound for that system is $D^k$. The same bound therefore holds for the original nonsingular solutions. See also the polynomial-system results in \cite{BPR}.
+
+The inverse function theorem covers the set where $\det DH\ne0$ by countably many open sets on which $H$ is one-to-one. Partition $E_\pi$ measurably among these sets. The ordinary change-of-variables formula on each piece, followed by summation, gives
+\[
+\int_{E_\pi}|\det DH(x)|\,dx
+=\int_{\R^k}\#\{x\in E_\pi:H(x)=y\}\,dy
+\le D^k|\pi(W)|.
+\]
+Combining this with the lower Jacobian bound and summing over coordinate projections proves \eqref{pl:rational-volume-bound}. In particular, we do not assume that every solution of a projected equation $H(x)=y$ is isolated.
+\end{proof}
+
+\paragraph{The differential of affine changes.}
+
+For $0\le\tau\le1$, set
+\begin{equation}\label{pl:N-tau}
+N_\tau=\begin{pmatrix}0&-1\\ \tau^2&0\end{pmatrix}.
+\end{equation}
+For a cubic tensor $C$ and a matrix $N$, define
+\[
+(\mathcal L_NC)[x_1,x_2,x_3]
+=C[Nx_1,x_2,x_3]+C[x_1,Nx_2,x_3]+C[x_1,x_2,Nx_3].
+\]
+For $\mathsf J=(\ell,Q,C)$, let
+\begin{equation}\label{pl:coupled-differential}
+\begin{split}
+\mathfrak D_{\tau,\mathsf J}(v,\omega)
+=\bigl(&Qv+\omega N_\tau^T\ell,\\
+&\iota_vC+\omega(N_\tau^TQ+QN_\tau),\quad
+\omega\mathcal L_{N_\tau}C\bigr).
+\end{split}
+\end{equation}
+The variable $v$ is translation in the current physical frame, and $\omega$ is angle divided by $\tau$. The operator $\mathcal L_NC$ is the derivative at $t=0$ of $C(e^{tN}\cdot,e^{tN}\cdot,e^{tN}\cdot)$. Thus \eqref{pl:coupled-differential} records the first-order change of the three Taylor blocks under translation and change of frame.
+
+\begin{lemma}[Binary rank estimate]\label{pl:binary-rank}
+Fix $C_0,c_0>0$. There are $\tau_0>0$, $A<\infty$, and $c>0$ such that the following hold for $K\ge2$, $0\le\tau\le\tau_0$, $|\ell|\le C_0K$, and $\|Q\|+\|C\|\le C_0$.
+
+If $s_{\min}(\mathcal A_{Q,C})\ge c_0$, then
+\begin{equation}\label{pl:full-differential-bound}
+s_{\min}(\mathfrak D_{\tau,\mathsf J})\ge cK^{-A}.
+\end{equation}
+If $|Qe_1|+\|\iota_{e_1}C\|\ge c_0$ and $|b|\le C_0\tau$, then the two-column map
+\begin{equation}\label{pl:capped-differential}
+(a,\omega)\longmapsto
+\mathfrak D_{\tau,\mathsf J}(ae_1+\omega b e_2,\omega)
+\end{equation}
+has least singular value at least $cK^{-A}$.
+\end{lemma}
+
+\begin{proof}
+We first exclude exact kernels, uniformly down to $\tau=0$. A kernel vector with $\omega=0$ is excluded by the corresponding contraction stopping condition. Otherwise divide by $\omega$ and assume $\omega=1$.
+
+For $\tau>0$, the eigenvalues of $N_\tau$ over $\mathbb C$ are $\pm i\tau$. The operator $\mathcal L_{N_\tau}$ on cubic coefficients has eigenvalues $\pm i\tau,\pm3i\tau$. To see this, use complex linear coordinates in which the two linear functions have eigenvalues $i\tau$ and $-i\tau$. On a cubic monomial the three contributions add, giving $3i\tau,i\tau,-i\tau,-3i\tau$. Hence the last component of \eqref{pl:coupled-differential} forces $C=0$. The middle component then gives
+\[
+N_\tau^TQ+QN_\tau=0,
+\qquad Q=q\begin{pmatrix}\tau^2&0\\0&1\end{pmatrix}.
+\]
+Since $|q|\le C_0$, both the full and the short-direction hypotheses contradict this identity when $\tau_0$ is sufficiently small.
+
+For $\tau=0$, let
+\[
+P(x,y)=\ell[x,y]+\tfrac12Q[(x,y),(x,y)]+\tfrac16C[(x,y),(x,y),(x,y)].
+\]
+The kernel equations say that
+\[
+\bigl((v_1-y)\partial_x+v_2\partial_y\bigr)P
+\quad\text{is constant}.
+\]
+The degree-three terms force the cubic homogeneous part of $P$ to be $ty^3/6$. Write its quadratic part as $q_0x^2/2+q_1xy+q_2y^2/2$. The degree-two terms give
+\[
+q_0=0,\qquad q_1=\frac{tv_2}{2}.
+\]
+The coefficient of $x$ in degree one is $v_2q_1$, and therefore vanishes. Thus $tv_2^2=0$, whence $q_1=0$. We obtain $Qe_1=0$ and $\iota_{e_1}C=0$, contrary to either stopping hypothesis. This computation applies in particular to \eqref{pl:capped-differential}, where $b=0$ at $\tau=0$.
+
+The parameters $(\tau,Q,C)$ in the first assertion form a compact semialgebraic set. In the second assertion include $b$ with $|b|\le C_0\tau$, again a compact semialgebraic condition. The matrices in \eqref{pl:coupled-differential} and \eqref{pl:capped-differential} have polynomial entries in these parameters and in $\ell$, and have full column rank for every real $\ell$ by the preceding calculation. Lemma \ref{pl:semialgebraic-coercivity} proves the stated powers of $K$.
+\end{proof}
+
+\paragraph{Counting the coefficient windows.}
+
+\begin{proposition}[Coupled center--frame overlap]\label{pl:coupled-overlap}
+Fix actual semiaxes $\delta,\delta/\tau$ with $0<\delta\le\tau\le1$ and $\delta\le1/4$. Use an angular net of spacing comparable to $\tau$, and centers $c=B_\theta m$ with $m\in\zeta\mathbb Z^2$, restricted to a fixed bounded physical set. Suppose the fixed small quadratic and cubic cells satisfy full stopping on their enlargements if $\delta/\tau\le1/4$, and short-direction stopping there if $\delta/\tau>1/4$. Then the windows \eqref{pl:frequency-box} satisfy
+\begin{equation}\label{pl:overlap-with-mesh}
+\sup_\xi\#\{J:\xi\in\Omega_J\}\lesssim \zeta^{-C_1}K^{A_1},
+\qquad 0<\zeta\le\zeta_0.
+\end{equation}
+The exponents and constants are independent of $\delta,\tau,K,\zeta$.
+\end{proposition}
+
+\begin{proof}
+Fix $\xi$. We count the center and angle variables simultaneously, except in the bounded-eccentricity case.
+
+\emph{Bounded eccentricity.} If $\tau\ge\tau_0$, where $\tau_0$ is from Lemma \ref{pl:binary-rank}, there are only $O(1)$ angles. At a fixed angle, two centers have normalized displacement $v=B_\theta^{-1}(c'-c)$. Their cubic tensors coincide, while
+\[
+Q'-Q=\iota_vC,\qquad \ell'-\ell=\overline Qv,
+\qquad \overline Q=\tfrac12(Q+Q').
+\]
+Small cell size ensures that $(\overline Q,C)$ still satisfies the relevant stopping inequality. Below the cap, $|\overline Qv|+\|\iota_vC\|\lesssim K$, so full stopping implies $|v|\lesssim K$. At the cap, $|v_2|\lesssim1$ because the physical long side is comparable to one. Apply short-direction stopping to
+\[
+\mathcal A_{\overline Q,C}(v_1e_1)
+=\mathcal A_{\overline Q,C}v-v_2\mathcal A_{\overline Q,C}e_2
+\]
+to obtain $|v_1|\lesssim K$. In either case there are $O(\zeta^{-2}K^2)$ lattice centers. This argument includes quadratic forms unchanged by rotations; no angular rank assertion is made in this branch.
+
+\emph{The normalized affine changes of coordinates.} Assume $0<\tau<\tau_0$. With $s=\theta/\tau$, put
+\begin{equation}\label{pl:G-tau}
+G_{\tau,s}=D_{\delta,\tau}^{-1}R_{\tau s}D_{\delta,\tau}
+=\begin{pmatrix}
+\cos(\tau s)&-\tau^{-1}\sin(\tau s)\\
+\tau\sin(\tau s)&\cos(\tau s)
+\end{pmatrix}=e^{sN_\tau}.
+\end{equation}
+The affine maps $x\mapsto z+G_{\tau,s}x$ form a group under composition. They have coordinates $(z,s)\in\R^2\times(\R/(2\pi/\tau)\mathbb Z)$, with $s$ read modulo its angular period, and their composition is expressed by the product
+\[
+(z,s)(z',s')=(z+G_{\tau,s}z',s+s').
+\]
+Composition on the left by a fixed such map preserves $dz\,ds$, since its Jacobian determinant is $\det G_{\tau,s}=1$. The packet states are
+\[
+(z,s)=(G_{\tau,s}m,s),\qquad m\in\zeta\mathbb Z^2,
+\]
+with a uniformly separated angular net in $s$. Choose as reference the jet of $P_\xi(D_{\delta,\tau}\,\cdot)$ at zero. The jets obtained by these substitutions are
+\begin{align}
+C(z,s)&=C_0(G_{\tau,s}\cdot,G_{\tau,s}\cdot,G_{\tau,s}\cdot),\label{pl:orbit-C}\\
+Q(z,s)&=G_{\tau,s}^T(Q_0+\iota_zC_0)G_{\tau,s},\label{pl:orbit-Q}\\
+\ell(z,s)&=G_{\tau,s}^T\left(\ell_0+Q_0z+\tfrac12C_0[z,z,\cdot]\right).\label{pl:orbit-L}
+\end{align}
+At the packet state these are exactly the jets at $(c,B_\theta)$. Composing on the right by a small $(v,\omega)$ changes $(z,s)$ to $(z+G_{\tau,s}v,s+\omega)$. Differentiating in $(v,\omega)$ at zero gives \eqref{pl:coupled-differential}, with the jet $\mathsf J(z,s)$. In these tangent coordinates the translation $v$ is measured in the current physical frame.
+
+Let $\mathcal W_K$ be the product of the linear window $|\ell|\le CK$ and the chosen enlarged higher-jet cells. Use a second fixed enlargement $\widetilde{\mathcal W}_K$, on which stopping still holds with a smaller fixed constant. A coordinate projection of this set to two or three coordinates has volume $\lesssim K^2$, since there are only two linear coordinates.
+
+\emph{The three-dimensional volume estimate below the cap.} Suppose $\delta/\tau\le1/4$. By Lemma \ref{pl:binary-rank} and Cauchy--Binet, at every point mapping into $\widetilde{\mathcal W}_K$, one of the $3\times3$ coordinate minors of this differential is $\gtrsim K^{-A_2}$. In the coordinates $(z,s)$, the conversion from these tangent vectors is $\operatorname{diag}(G_{\tau,s},1)$, with determinant one. Thus the same minor determinants have this lower bound in these coordinates.
+
+Cover one angular period by a fixed finite number of charts. In a chart centered at $\theta_*$, use
+\begin{equation}\label{pl:rational-angle}
+t=\tau^{-1}\tan\frac{\theta-\theta_*}{2},
+\qquad \frac{ds}{dt}=\frac{2}{1+\tau^2t^2}.
+\end{equation}
+Take $|\theta-\theta_*|\le3\pi/4$, so that $ds/dt$ is bounded above and below by fixed constants. The half-angle formulas give $\cos(\theta-\theta_*)=(1-\tau^2t^2)/(1+\tau^2t^2)$ and $\sin(\theta-\theta_*)=2\tau t/(1+\tau^2t^2)$. Substitution in \eqref{pl:orbit-C}--\eqref{pl:orbit-L} therefore makes the jet map rational in $(z,t)$, with numerator and denominator degrees bounded independently of all scales. The entries of $G$ may be large, but they are coefficients of this rational map and do not change the degree bound or the resulting bound for the number of nonsingular solutions. Lemma \ref{pl:rational-volume}, applied to the coordinate minors and the projected windows, yields
+\begin{equation}\label{pl:full-orbit-volume}
+\bigl|\{(z,s):\mathsf J(z,s)\in\widetilde{\mathcal W}_K\}\bigr|
+\lesssim K^{A_3}.
+\end{equation}
+This is a volume bound over the entire normalized center space and one angular period, so restricting the physical centers can only decrease it.
+
+\emph{From volume to separated states.} Let $U_r=\{(v,\omega):|v_1|,|v_2|,|\omega|<r\}$ near the identity and choose $r=c\zeta/(1+K)$. For a counted state $g$, the set $gU_r$ consists of its compositions with the small affine changes in $U_r$ and has volume $8r^3$. These neighborhoods are disjoint when $c$ is sufficiently small. Indeed, distinct angles have a fixed positive separation in the $s$ variable; at a common angle, the relative center coordinates differ by a nonzero vector of $\zeta\mathbb Z^2$. Products and inverses of elements of $U_r$ have coordinates $O(r)$ uniformly in $\tau$, since $\|N_\tau\|$ is bounded.
+
+The jet change under right multiplication by $(v,\omega)\in U_r$ is controlled by the exact translation formulas and $e^{\omega N_\tau}=I+O(r)$. Its higher tensors change by $O(r)$ and its linear tensor by $O(Kr)$. Thus $gU_r$ maps into $\widetilde{\mathcal W}_K$. Comparing their disjoint volumes with \eqref{pl:full-orbit-volume} gives $\lesssim\zeta^{-3}K^{A_4}$ states. The state count thus uses the global orbit-volume bound and the separation of the affine neighborhoods in addition to the differential rank bound.
+
+\emph{The two-dimensional count at the cap.} Suppose $\delta/\tau>1/4$. Since the physical centers stay in a fixed bounded set, $|m_2|\lesssim1$, so there are $O(\zeta^{-1})$ possible long-coordinate layers. Fix one value of $m_2$ and parameterize its states by $(m_1,s)$. Its tangent vectors, with translation measured in the current frame, are
+\[
+(e_1,0),\qquad (N_\tau m,1)=(-m_2e_1+\tau^2m_1e_2,1).
+\]
+Subtracting $-m_2$ times the first vector from the second does not change any two-dimensional coordinate minor. The resulting second vector is $(be_2,1)$, where
+\[
+|b|=\tau^2|m_1|\lesssim\tau,
+\]
+because $|\delta m_1|\lesssim1$ and $\delta/\tau>1/4$. Lemma \ref{pl:binary-rank} therefore supplies a two-dimensional minor bounded below by $cK^{-A_5}$. In the charts \eqref{pl:rational-angle}, the restricted jet map is rational of bounded degree in $(m_1,t)$. Lemma \ref{pl:rational-volume} gives parameter area $\lesssim K^{A_6}$ over the enlarged stopped window, with $|\delta m_1|$ restricted to a fixed bound.
+
+Use rectangles of side $2r$, $r=c\zeta/(1+K)$, about counted points in the $(m_1,s)$ coordinates. They are disjoint. On a slightly enlarged physical center range, $|m_2|\lesssim1$ and $|\tau^2m_1|\lesssim\tau$ continue to hold. The displayed tangent vectors and the exact jet substitution formulas show that the higher tensors vary by $O(r)$ and the linear tensor by $O(Kr)$ on each rectangle. Hence these rectangles stay in an enlarged stopped window. Their areas give $\lesssim\zeta^{-2}K^{A_7}$ states on the layer. Summing the $O(\zeta^{-1})$ layers proves \eqref{pl:overlap-with-mesh} at the cap, and completes the proof.
+\end{proof}
+
+\begin{remark}[Overlap does not force comparable frames]\label{pl:large-shear}
+The preceding proposition counts the allowed center--frame states; it does not assert that all of them are close. For example, set
+\[
+f_g(x,y)=g^{-2}x^3+\frac{3}{2g}x^2y+\frac12xy^2.
+\]
+Then
+\[
+f_g(x-gy,y)=g^{-2}x^3-\frac{3}{2g}x^2y+\frac12xy^2.
+\]
+The two cubic tensors approach the same tensor as $g\to\infty$, and contraction by that limiting tensor is injective. Nevertheless the shear has unbounded norm. The bound for polynomial solution sets counts such alternatives without a pairwise shear bound. This is consistent with the local physical comparison \eqref{pl:intersecting-carrier-comparison}, which concerns a different assertion: two intersecting carriers from the selected frame field for one fixed phase.
+\end{remark}
+
+\paragraph{Completion of the decomposition.}
+\label{pl:resolution-proof}
+
+Choose $0<\beta<10^{-3}$ and set $K=R^\beta$. We first take $R$ sufficiently large that $K\ge2$; the remaining bounded range is absorbed into the final constant. The parameter $\beta$ remains free here and is chosen after $p$ in the Tarry application. Recall that $\rho^{-1}$ and $\zeta^{-1}$ are bounded by a fixed multiple of $L_R^2$.
+
+\begin{proof}[Proof of Theorem~\ref{pl:decomposition}]
+Start with Proposition \ref{pl:physical-reconstruction} and group the fine amplitudes by Lemma \ref{pl:exact-grouping}. Thus $Ea=\sum_jF_j$ exactly. Lemma \ref{pl:shrinking} gives
+\[
+Ea(\xi)=\sum_jF_j(\xi)\mathbf1_{\{|\ell_{c_j}^{B_j}(\xi)|\le CK\}}+e_R(\xi),
+\qquad |e_R(\xi)|\lesssim_{N,a} (\rho K)^{-N}.
+\]
+Since $(\rho K)^{-N}\lesssim_N L_R^{2N}R^{-\beta N}$, choosing $N>2M/\beta$ gives the stated error after increasing the constant.
+
+At any retained state the center stays in a fixed bounded set, the normalized higher tensors are bounded, and $s_{\min}(B_j)=\delta$. Inverting Taylor translation and tensor pullback therefore gives
+\begin{equation}\label{pl:retained-scale}
+R\lesssim K\delta^{-1}+\delta^{-2}+\delta^{-3}
+\lesssim K\delta^{-1}+\delta^{-3}.
+\end{equation}
+At least one of the two terms on the right is a fixed multiple of $R$. Thus $\delta\lesssim\max(K/R,R^{-1/3})\lesssim R^{-1/3}$, since $\beta<2/3$. The lower bound in \eqref{pl:retained-range} comes from the family. In particular, every retained short side is at most $1/4$ when $R$ is sufficiently large.
+
+Partition a fixed bounded higher-jet region into half-open coordinate cells $\gamma=\gamma_Q\times\gamma_C$ of a sufficiently small fixed diameter. For each retained shape keep the cells meeting its full or short stopped region, as appropriate. Proposition \ref{pl:physical-reconstruction} gives stopping with a uniform margin. Hence, by taking the cell diameter small, the same stopping inequality with a smaller constant holds on two fixed enlargements of every retained cell. The number of cells is fixed, independent of all scales.
+
+\paragraph{Parent masks and refinements.}
+For $J=(j,\gamma)$ define the parent mask and localized integral by
+\begin{equation}\label{pl:localized-integral}
+\begin{split}
+m_J(\xi)&=\mathbf1_\gamma\bigl(Q_{c_j}^{B_j}(\xi),C^{B_j}(\xi)\bigr),\\
+E_Ja(\xi)&=m_J(\xi)F_j(\xi).
+\end{split}
+\end{equation}
+The refined terms are $E_{I,J}a=m_JE_{I,j}a$, and $E_Ja=\sum_IE_{I,J}a$ exactly. Thus the degreewise label is shared by all fine refinements of a parent. The half-open cells partition the higher jets of every retained active state. With $\Omega_J$ defined by \eqref{pl:frequency-box}, this proves \eqref{pl:packet-decomposition}. Enlarging the cells only defines the containing windows; no amplitude identity relies on replacing a fine mask by a larger mask.
+
+The state count is \eqref{pl:library-count}. The number of types is $O(L_R^2)$, since a fixed number of cells is added to each semiaxis pair. Corollary \ref{pl:box-volume} gives the window volume. The support and uniform bound for $\psi_j$ give $|E_Ja|\lesssim_a\rho^2V\lesssim_a V$. Finally Proposition \ref{pl:coupled-overlap} applies to precisely these centers, frames, and stopped higher-jet cells. Its bound is $\lesssim\zeta^{-C_1}K^{A_1}$. For fixed $\beta>0$, any fixed power of $L_R$ is $\lesssim_\beta R^\beta=K$. Absorbing it proves \eqref{pl:bounded-overlap}, with an exponent independent of $\beta$.
+\end{proof}
+
+\begin{remark}[The order of the decomposition]
+There are three exact operations before estimates are taken: the physical partition, its common refinement with the fine $I$-partition, and the half-open higher-jet subdivision at each parent. The only discarded part is the linear-frequency tail, whose entire sum is controlled by \eqref{pl:carrier-tail}. The functions $\psi_j$ and $E_Ja$ may depend measurably on $\xi$. The proof uses uniform physical derivative bounds and pointwise amplitude bounds, not an extension estimate for a coefficient-independent parent amplitude.
+\end{remark}
+
+\subsection{Cubic identities and grouping}\label{sup:cubic-alternatives}
+The matrix-logarithm Hessian is given by Lemma~\partIref{an:log-hessian} and \partIeqref{an:log-hessian-equation}.
+
+Use the exact grouping of Lemma~\ref{pl:exact-grouping}: the parent mask is common to its fine refinements, and their amplitudes are summed before estimation.
+
+\section{Quartic supplementary arguments and certificates}
+
+\subsection{Quartic coefficient certificates}\label{sup:quartic}
+
+This section accompanies Section~\partIIref{low:degree4} of the main text. We use $\mathcal V=\mathbb R[x,y,z]_{\le4}/\mathbb R$ and all $34$ nonconstant monomial coefficients, ordered by total degree and then lexicographically in the exponent triple. The fixed upper-affine action is $\rho(g)J=[J\circ g]$ with $g$ as in~\partIeqref{geo:group}; it has coefficient determinant one. The regular model states, determinant constants and scaling convention are those of the main Section~\partIIref{low:4:rd:section}, with matrix entries~\partIeqref{low:4:rd:matrix_entry} and scaling~\partIeqref{low:4:rd:scaling}. Residual model states are specified below. The row data certify finite coefficient identities; the main text supplies their assignment, sampling net cardinalities and fixed-anchor integration.
+
+\subsubsection{Row sets for the regular sampling minors}\label{low:4:rd:rows}
+
+In the following lists, a monomial in the column indexed by $r$ denotes its output coefficient at state $h_r$. The tables group rows by sample, preserving their listed order within each sample. This regrouping changes at most the signs of the determinants in the regular certificate table in the main Section~\partIIref{low:4:rd:section}. Only their absolute values are used in the proof, and the accompanying exact check also verifies the determinants in the grouped order. Together with \partIeqref{low:4:rd:matrix_entry}, the lists specify all seven finite identities without a choice of unspecified rows.
+
+\paragraph{Certificate $L_4$.} The selected output monomials are as follows.
+\begin{center}
+\begin{tabular}{cp{0.83\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(y^{2}\), \(y^{2}z\), \(y^{2}z^{2}\), \(xz^{3}\), \(y^{3}z\), \(y^{4}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(yz^{2}\), \(yz^{3}\), \(y^{2}z\), \(y^{2}z^{2}\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(yz^{2}\), \(yz^{3}\), \(y^{2}z\), \(y^{2}z^{2}\)\\
+3 & \(z^{2}\), \(z^{3}\), \(z^{4}\), \(yz^{3}\), \(y^{2}z^{2}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph{Certificate $Q_3$.} The selected output monomials are as follows.
+\begin{center}
+\begin{tabular}{cp{0.83\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(x\), \(y^{2}\), \(xz\), \(y^{2}z^{2}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(x\), \(y^{2}\), \(xz\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(x\), \(y^{2}\), \(xz\)\\
+\end{tabular}
+\end{center}
+
+\paragraph{Certificate $P_4$.} The selected output monomials are as follows.
+\begin{center}
+\begin{tabular}{cp{0.83\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(y\), \(x\), \(z^{3}\), \(xz\), \(z^{4}\), \(xz^{2}\), \(x^{2}\), \(x^{2}z\), \(x^{2}z^{2}\), \(x^{3}\), \(x^{4}\)\\
+1 & \(z\), \(z^{2}\), \(y\), \(x\), \(xz\), \(xz^{2}\), \(x^{2}\), \(x^{3}\)\\
+2 & \(z\), \(z^{2}\), \(y\), \(x\), \(xz\), \(xz^{2}\), \(x^{2}\), \(x^{3}\)\\
+3 & \(z\), \(z^{2}\), \(y\), \(x\), \(x^{2}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph{Certificate $M_5$.} The selected output monomials are as follows.
+\begin{center}
+\begin{tabular}{cp{0.83\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(y\), \(yz\), \(yz^{2}\), \(x\), \(y^{2}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(y\), \(yz\), \(yz^{2}\), \(x\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(y\), \(yz\), \(yz^{2}\), \(x\)\\
+3 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(x\)\\
+4 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph{Certificate $L_5$.} The selected output monomials are as follows.
+\begin{center}
+\begin{tabular}{cp{0.83\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(yz^{2}\), \(yz^{3}\), \(xz\), \(xz^{2}\), \(xz^{3}\), \(x^{2}z^{2}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(yz^{2}\), \(yz^{3}\), \(xz^{2}\), \(xz^{3}\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(yz^{3}\), \(xz^{2}\), \(xz^{3}\)\\
+3 & \(z^{2}\), \(z^{3}\), \(z^{4}\), \(yz^{3}\), \(xz^{3}\)\\
+4 & \(z^{2}\), \(z^{3}\), \(z^{4}\), \(xz^{3}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph{Certificate $R_4$.} The selected output monomials are as follows.
+\begin{center}
+\begin{tabular}{cp{0.83\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(x\), \(y\), \(xz\), \(yz\), \(yz^{2}\), \(y^{2}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(x\), \(y\), \(xz\), \(yz\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(x\), \(y\), \(xz\), \(yz\)\\
+3 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(x\), \(y\), \(xz\), \(yz\)\\
+\end{tabular}
+\end{center}
+
+\paragraph{Certificate $Q_4$.} The selected output monomials are as follows.
+\begin{center}
+\begin{tabular}{cp{0.83\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(x\), \(y\), \(xz\), \(yz\), \(xz^{2}\), \(xz^{3}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(x\), \(y\), \(xz\), \(yz\), \(xz^{2}\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(x\), \(y\), \(xz\), \(yz\)\\
+3 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(x\), \(y\), \(xz\)\\
+\end{tabular}
+\end{center}
+
+\subsubsection{Sampling minors for the residual charts}\label{low:4:rr:certificates}
+We give the complete finite data underlying the sampling determinants. This also fixes the sample convention, which matters for the numerical constants. Order the input monomials $x^iy^jz^k$, $1\le i+j+k\le4$, first by total degree and then lexicographically by $(i,j,k)$. A row is specified by a sample number $t\in\{0,\ldots,m-1\}$ and one output monomial. The following models are sampled at those integer times:
+\[
+\begin{array}{c|l}
+\mathcal M_f &(x+t y,y,z+t)\\
+\mathcal P_f &(x+t z+t^2/2,y,z+t)\\
+\mathcal C_{f,5},\mathcal C_{f,4},\mathcal C_e,\mathcal C_d &(x+t y+t^2z/2+t^3/6,y+t z+t^2/2,z+t)\\
+\mathcal P_a &(x+2t y+t^2,y+t,z)\\
+\mathcal M_e &(x+t z,y+t,z)\\
+\mathcal L_e &(x+t y+t^2z/2+t^2/2,y+t z+t,z)\\
+\mathcal M_d &(x+t,y+t z+t^2/2,z+t).
+\end{array}
+\]
+The subscripts $f,e,a,d$ identify the chart in which the model is used; $\mathcal C_e$ is also the three-state cubic certificate used in the significant-$A$ chart. The same cubic model has several useful row sets, and they must not be interchanged. All constants below are absolute determinant values, so the ordering of the selected rows is immaterial.
+
+\begin{lemma}[Explicit minors]\label{low:4:rr:minor_lemma}
+For each model in the preceding display, choose exactly the rows listed below. The selected matrix is square of size $34$ and has determinant absolute value and output exponent sums given by
+\[
+\begin{array}{c|r|c}
+\text{model}&|\det|&(r_x,r_y,r_z)\\\hline
+\mathcal M_f&15850845241344&(0,70,15)\\
+\mathcal P_f&\frac{18600435}{64}&(4,35,31)\\
+\mathcal C_{f,5}&4173258660249600&(8,48,8)\\
+\mathcal C_{f,4}&\frac{416912}{19683}&(6,29,29)\\
+\mathcal P_a&624127031377920&(4,31,35)\\
+\mathcal M_e&61917364224&(4,15,66)\\
+\mathcal L_e&2125764&(11,11,46)\\
+\mathcal C_e&\frac{1925}{1301435304104448}&(6,21,51)\\
+\mathcal M_d&139314069504&(8,11,50)\\
+\mathcal C_d&\frac{14105}{248832}&(11,7,54)\\
+\end{array}
+\]
+Each of these nonzero determinants remains bounded below on a sufficiently small neighborhood of the normalized model. The neighborhood and all bounded changes of the significant rates have reciprocal size at most $P^C$.
+\end{lemma}
+\begin{proof}
+The anisotropic powers used in Sections~\partIIref{low:4:rr:f}--\partIIref{low:4:rr:swap} follow by \partIIeqref{low:4:cf:weight}. The following coefficient formula and rational elimination verify the finite data. At a state $g=(a,b,c,d,e,f)$, the coefficient of $x^{r_1}y^{r_2}z^{r_3}$ in $\rho(g)(x^iy^jz^k)$ is
+\[
+\sum\binom{i}{p,q,r,s}\binom{j}{u,v,w}\binom{k}{h}
+a^q b^r c^s d^v e^w f^{k-h},
+\]
+where the sum is over nonnegative indices satisfying
+\[
+p+q+r+s=i,\quad u+v+w=j,\quad 0\le h\le k,\quad
+p=r_1,\quad q+u=r_2,\quad r+v+h=r_3.
+\]
+The convention $0^0=1$ applies. This formula is just the multinomial expansion of the three substituted affine coordinates. Insert the displayed rational model states and the row sets below. Fraction-free elimination gives the stated rational values: at a nonzero pivot $M_{tt}$, replace every entry $M_{jk}$ with $j,k>t$ by
+\[
+\frac{M_{tt}M_{jk}-M_{jt}M_{tk}}{p_{t-1}},\qquad p_{-1}=1,
+\]
+where $p_{t-1}$ is the preceding pivot, and interchange rows first if the current pivot is zero. The last remaining entry, up to the row-permutation sign, is the determinant. Every entry and operation is rational. Nonzero significant core rates are reduced to the displayed choices by diagonal changes with norms and inverse norms at most $P^C$; their signs are handled by coordinate reflections. These operations affect the absolute determinant only by fixed polynomial factors.
+
+For the $\mathcal M_f$ row set, grade the input monomials by $\deg_x+\deg_y$ and the selected output rows by their corresponding top $y$ degree. The square diagonal blocks have sizes $4,8,9,8,5$ and depend only on the $a_t,f_t$ entries. Thus changing the separate $b_t,c_t,d_t,e_t$ entries does not change the determinant. For $\mathcal P_f$ with $a_t=0$, the $y$-degree blocks have sizes $14,10,6,3,1$ and show independence of separate $d_t,e_t$. For $\mathcal P_a$, translation in $z$ lowers its degree, giving independence of separate $z$ translations. For $\mathcal M_e$ with $d_t=0$, the $\deg_x+\deg_z$ blocks have equal input and output sizes $4,8,9,8,5$, and changing separate $a_t,c_t,f_t$ lowers this degree. These triangular statements justify the coordinate freedoms used in the proofs. Ordinary continuity on the remaining normalized compact sets proves stability; the polynomial quantitative version is Lemma~\partIref{low:4:cf:polynomial}.
+\end{proof}
+
+The selected rows are as follows. In each display the left entry is the sample time and the right entry is the set of retained output monomials at that time. The displays contain exactly $34$ rows per model.
+
+\[
+\mathcal M_f:\qquad\begin{array}{c|l}
+0&\{y,\,y^{2},\,y^{3},\,y^{4},\,z,\,yz,\,y^{2}z,\,y^{3}z,\,y^{2}z^{2}\}\\
+1&\{y,\,y^{2},\,y^{3},\,y^{4},\,z,\,yz,\,y^{2}z,\,y^{3}z\}\\
+2&\{y,\,y^{2},\,y^{3},\,y^{4},\,z,\,yz,\,y^{2}z,\,y^{3}z\}\\
+3&\{y,\,y^{2},\,y^{3},\,y^{4},\,z\}\\
+4&\{y,\,y^{2},\,y^{3},\,y^{4}\}\\
+\end{array}
+\]
+
+\[
+\mathcal P_f:\qquad\begin{array}{c|l}
+0&\{y,\,y^{2},\,y^{3},\,y^{4},\,z,\,yz,\,y^{2}z,\,z^{2},\,yz^{2},\,y^{2}z^{2},\,x,\,z^{3},\,z^{4}\}\\
+1&\{y,\,y^{2},\,y^{3},\,z,\,yz,\,z^{2},\,yz^{2},\,x\}\\
+2&\{y,\,y^{2},\,y^{3},\,z,\,yz,\,z^{2},\,yz^{2},\,x\}\\
+3&\{y,\,y^{2},\,z,\,z^{2},\,x\}\\
+\end{array}
+\]
+
+\[
+\mathcal C_{f,5}:\qquad\begin{array}{c|l}
+0&\{y,\,y^{2},\,z,\,y^{3},\,x,\,yz,\,y^{4},\,xy\}\\
+1&\{y,\,y^{2},\,z,\,y^{3},\,x,\,yz,\,y^{4},\,xy\}\\
+2&\{y,\,y^{2},\,z,\,y^{3},\,x,\,yz,\,y^{4},\,xy\}\\
+3&\{y,\,y^{2},\,z,\,y^{3},\,x\}\\
+4&\{y,\,y^{2},\,z,\,y^{3},\,x\}\\
+\end{array}
+\]
+
+\[
+\mathcal C_{f,4}:\qquad\begin{array}{c|l}
+0&\{z,\,y,\,z^{2},\,yz,\,y^{2},\,x,\,z^{3},\,yz^{2},\,y^{2}z,\,y^{3},\,xz,\,xy\}\\
+1&\{z,\,y,\,z^{2},\,yz,\,y^{2},\,x,\,z^{3},\,yz^{2},\,y^{2}z,\,y^{3}\}\\
+2&\{z,\,y,\,z^{2},\,yz,\,y^{2},\,x\}\\
+3&\{z,\,y,\,z^{2},\,yz,\,y^{2},\,x\}\\
+\end{array}
+\]
+
+\[
+\mathcal P_a:\qquad\begin{array}{c|l}
+0&\{z,\,z^{2},\,z^{3},\,z^{4},\,y,\,yz,\,yz^{2},\,y^{2},\,y^{2}z,\,y^{2}z^{2},\,x,\,y^{3},\,y^{4}\}\\
+1&\{z,\,z^{2},\,z^{3},\,y,\,yz,\,y^{2},\,y^{2}z,\,x\}\\
+2&\{z,\,z^{2},\,z^{3},\,y,\,yz,\,y^{2},\,y^{2}z,\,x\}\\
+3&\{z,\,z^{2},\,y,\,y^{2},\,x\}\\
+\end{array}
+\]
+
+\[
+\mathcal M_e:\qquad\begin{array}{c|l}
+0&\{z,\,y,\,z^{2},\,yz,\,x,\,z^{3},\,yz^{2},\,xz,\,z^{4},\,yz^{3},\,y^{2}z^{2},\,xz^{2},\,xz^{3}\}\\
+1&\{z,\,y,\,z^{2},\,yz,\,z^{3},\,yz^{2},\,z^{4},\,yz^{3}\}\\
+2&\{z,\,y,\,z^{2},\,yz,\,z^{3},\,yz^{2},\,z^{4},\,yz^{3}\}\\
+3&\{z,\,y,\,z^{2},\,z^{3},\,z^{4}\}\\
+\end{array}
+\]
+
+\[
+\mathcal L_e:\qquad\begin{array}{c|l}
+0&\{z,\,z^{2},\,z^{3},\,z^{4},\,y,\,yz,\,yz^{2},\,x,\,xz,\,xz^{2},\,y^{2},\,xy,\,x^{2}\}\\
+1&\{z,\,z^{2},\,z^{3},\,z^{4},\,y,\,yz,\,x,\,xz\}\\
+2&\{z,\,z^{2},\,z^{3},\,z^{4},\,y,\,yz,\,x,\,xz\}\\
+3&\{z,\,z^{2},\,z^{3},\,y,\,x\}\\
+\end{array}
+\]
+
+\[
+\mathcal C_e:\qquad\begin{array}{c|l}
+0&\{z,\,z^{2},\,y,\,z^{3},\,yz,\,x,\,z^{4},\,yz^{2},\,y^{2},\,xz,\,yz^{3},\,y^{2}z,\,y^{2}z^{2}\}\\
+1&\{z,\,z^{2},\,y,\,z^{3},\,yz,\,x,\,z^{4},\,yz^{2},\,y^{2},\,xz,\,yz^{3}\}\\
+2&\{z,\,z^{2},\,y,\,z^{3},\,yz,\,x,\,z^{4},\,yz^{2},\,y^{2},\,xz\}\\
+\end{array}
+\]
+
+\[
+\mathcal M_d:\qquad\begin{array}{c|l}
+0&\{z,\,z^{2},\,z^{3},\,z^{4},\,x,\,y,\,xz,\,yz,\,yz^{2},\,y^{2}\}\\
+1&\{z,\,z^{2},\,z^{3},\,z^{4},\,x,\,y,\,xz,\,yz\}\\
+2&\{z,\,z^{2},\,z^{3},\,z^{4},\,x,\,y,\,xz,\,yz\}\\
+3&\{z,\,z^{2},\,z^{3},\,z^{4},\,x,\,y,\,xz,\,yz\}\\
+\end{array}
+\]
+
+\[
+\mathcal C_d:\qquad\begin{array}{c|l}
+0&\{z,\,z^{2},\,z^{3},\,z^{4},\,x,\,y,\,xz,\,yz,\,xz^{2},\,xz^{3}\}\\
+1&\{z,\,z^{2},\,z^{3},\,z^{4},\,x,\,y,\,xz,\,yz,\,xz^{2}\}\\
+2&\{z,\,z^{2},\,z^{3},\,z^{4},\,x,\,y,\,xz,\,yz\}\\
+3&\{z,\,z^{2},\,z^{3},\,z^{4},\,x,\,y,\,xz\}\\
+\end{array}
+\]
+
+The quartic count consequence of Theorem~\partIref{atlas:affine-area} uses the actual cubic critical equation, the conditioned curvature and physical windows, and Proposition~\partIref{atlas:projected-packing}. These give $N\lesssim_P\Lambda v^{-1/2}$; the corresponding $LW$ bound requires the strip's signed Jacobian to be comparable to tangential area.
+
+\section{Quintic and degree-nine supplementary material}
+
+\subsection{Quintic coefficient rows}\label{supp:quintic-nine}
+Their entry formula is~\partIeqref{low:5:rd5:matrix_entry}; the main proof retains every exponent sum, scale identity, grading argument, and original-coordinate sampling net cardinality. The degree-nine slope certificate and its multiplicity proof remain in Lemma~\partIref{low:9:h9d:slope}.
+
+\subsubsection{Row sets for the quintic sampling minors}\label{low:5:rd5:rows}
+
+A monomial listed at row index $r$ means its coefficient at the model state $h_r$. Within each group the displayed order is the selected order. Grouping by $r$ changes at most the sign of the determinant. Only the absolute determinant is needed. Together with formula~\partIeqref{low:5:rd5:matrix_entry}, the lists below specify all $55$ rows of each finite certificate, without an unspecified pivot choice.
+
+\paragraph{Certificate $L_{4}$.}\mbox{}
+\begin{center}
+\begin{tabular}{cp{0.83\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(y^{2}\), \(y^{2}z\), \(y^{2}z^{2}\), \(y^{2}z^{3}\), \(xz^{3}\), \(xz^{4}\), \(y^{3}z\), \(y^{3}z^{2}\), \(y^{4}\), \(y^{4}z\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(y^{2}z\), \(y^{2}z^{2}\), \(y^{2}z^{3}\), \(xz^{4}\), \(y^{3}z^{2}\), \(y^{4}z\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(y^{2}z\), \(y^{2}z^{2}\), \(y^{2}z^{3}\), \(xz^{4}\), \(y^{3}z^{2}\), \(y^{4}z\)\\
+3 & \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(yz^{3}\), \(yz^{4}\), \(y^{2}z^{2}\), \(y^{2}z^{3}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph{Certificate $Q_{3}$.}\mbox{}
+\begin{center}
+\begin{tabular}{cp{0.83\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(x\), \(y^{2}\), \(xz\), \(y^{2}z\), \(xz^{2}\), \(y^{2}z^{2}\), \(xz^{3}\), \(y^{2}z^{3}\), \(xz^{4}\), \(xy\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(x\), \(y^{2}\), \(xz\), \(y^{2}z\), \(xz^{2}\), \(y^{2}z^{2}\), \(xz^{3}\), \(y^{2}z^{3}\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(x\), \(y^{2}\), \(xz\), \(y^{2}z\), \(xz^{2}\), \(y^{2}z^{2}\), \(xz^{3}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph{Certificate $P_{4}$.}\mbox{}
+\begin{center}
+\begin{tabular}{cp{0.83\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(x\), \(x^{2}\), \(x^{3}\), \(x^{4}\), \(x^{5}\), \(z\), \(xz\), \(x^{2}z\), \(x^{3}z\), \(y\), \(xy\), \(x^{2}y\), \(x^{3}y\), \(z^{2}\), \(xz^{2}\), \(yz\), \(xyz\), \(z^{3}\), \(y^{2}\), \(xy^{2}\)\\
+1 & \(x\), \(x^{2}\), \(x^{3}\), \(x^{4}\), \(z\), \(xz\), \(x^{2}z\), \(y\), \(xy\), \(x^{2}y\), \(z^{2}\), \(yz\), \(y^{2}\)\\
+2 & \(x\), \(x^{2}\), \(x^{3}\), \(x^{4}\), \(z\), \(xz\), \(x^{2}z\), \(y\), \(xy\), \(x^{2}y\), \(z^{2}\), \(yz\), \(y^{2}\)\\
+3 & \(x\), \(x^{2}\), \(x^{3}\), \(z\), \(xz\), \(y\), \(xy\), \(z^{2}\), \(yz\)\\
+\end{tabular}
+\end{center}
+
+\paragraph{Certificate $M_{5}$.}\mbox{}
+\begin{center}
+\begin{tabular}{cp{0.83\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(x\), \(y^{2}\), \(y^{2}z\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(x\), \(y^{2}\), \(y^{2}z\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(x\)\\
+3 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(x\)\\
+4 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(x\)\\
+\end{tabular}
+\end{center}
+
+\paragraph{Certificate $L_{5}$.}\mbox{}
+\begin{center}
+\begin{tabular}{cp{0.83\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(xz\), \(xz^{2}\), \(xz^{3}\), \(xz^{4}\), \(y^{2}z^{3}\), \(xyz^{3}\), \(x^{2}z^{2}\), \(x^{2}z^{3}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(xz^{2}\), \(xz^{3}\), \(xz^{4}\), \(xyz^{3}\), \(x^{2}z^{3}\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(yz^{3}\), \(yz^{4}\), \(xz^{2}\), \(xz^{3}\), \(xz^{4}\), \(x^{2}z^{3}\)\\
+3 & \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(yz^{3}\), \(yz^{4}\), \(xz^{3}\), \(xz^{4}\)\\
+4 & \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(yz^{4}\), \(xz^{3}\), \(xz^{4}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph{Certificate $R_{4}$.}\mbox{}
+\begin{center}
+\begin{tabular}{cp{0.83\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(x\), \(y\), \(xz\), \(yz\), \(xz^{2}\), \(yz^{2}\), \(xz^{3}\), \(yz^{3}\), \(x^{2}\), \(y^{2}\), \(y^{2}z\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(x\), \(y\), \(xz\), \(yz\), \(xz^{2}\), \(yz^{2}\), \(xz^{3}\), \(yz^{3}\), \(y^{2}\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(x\), \(y\), \(xz\), \(yz\), \(xz^{2}\), \(yz^{2}\), \(yz^{3}\), \(y^{2}\)\\
+3 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(x\), \(y\), \(xz\), \(yz\), \(xz^{2}\), \(yz^{2}\), \(yz^{3}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph{Certificate $Q_{4}$.}\mbox{}
+\begin{center}
+\begin{tabular}{cp{0.83\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\)\\
+3 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\)\\
+\end{tabular}
+\end{center}
+
+\subsubsection{Quintic sampling rows for the residual charts}\label{supp:quintic-residual-rows}
+A row is a sample number together with its retained output monomial. Each display has $55$ rows. Grouping rows by sample changes at most the sign of the determinant, so the table in the main text records absolute determinant values. The input basis remains ordered by total degree and then lexicographically.
+
+\[
+\mathcal M_f:\qquad\begin{array}{c|l}
+0&y,\,y^{2},\,y^{3},\,y^{4},\,y^{5},\,z,\,x,\,yz,\,xy,\\
+&y^{2}z,\,xy^{2},\,y^{3}z,\,xy^{3},\,y^{4}z,\,xy^{4},\,z^{2},\,x^{2},\,x^{2}y\\
+1&y,\,y^{2},\,y^{3},\,y^{4},\,y^{5},\,z,\,x,\,yz,\,xy,\\
+&y^{2}z,\,xy^{2},\,y^{3}z,\,xy^{3},\,y^{4}z,\,xy^{4},\,x^{2},\,x^{2}y\\
+2&y,\,y^{2},\,y^{3},\,y^{4},\,y^{5},\,z,\,x,\,xy,\,xy^{2},\\
+&xy^{3}\\
+3&y,\,y^{2},\,y^{3},\,y^{4},\,y^{5},\,z,\,x,\,xy,\,xy^{2},\\
+&xy^{3}\\
+\end{array}
+\]
+
+\[
+\mathcal P_f:\qquad\begin{array}{c|l}
+0&y,\,y^{2},\,y^{3},\,y^{4},\,y^{5},\,z,\,yz,\,y^{2}z,\,y^{3}z,\\
+&x,\,z^{2},\,xy,\,yz^{2},\,xy^{2},\,xy^{3},\,xz,\,z^{3},\,xyz,\\
+&x^{2},\,x^{2}y\\
+1&y,\,y^{2},\,y^{3},\,y^{4},\,z,\,yz,\,y^{2}z,\,x,\,z^{2},\\
+&xy,\,xy^{2},\,xz,\,z^{3},\,x^{2}\\
+2&y,\,y^{2},\,y^{3},\,y^{4},\,z,\,yz,\,y^{2}z,\,x,\,z^{2},\\
+&xy,\,xy^{2},\,xz,\,x^{2}\\
+3&y,\,y^{2},\,y^{3},\,z,\,yz,\,x,\,z^{2},\,xy\\
+\end{array}
+\]
+
+\[
+\mathcal C_f:\qquad\begin{array}{c|l}
+0&z,\,y,\,x,\,z^{2},\,yz,\,y^{2},\,xz,\,xy,\,z^{3},\\
+&yz^{2},\,y^{2}z,\,y^{3},\,x^{2},\,xz^{2},\,xyz,\,xy^{2},\,z^{4},\,yz^{3},\\
+&y^{2}z^{2}\\
+1&z,\,y,\,x,\,z^{2},\,yz,\,y^{2},\,xz,\,xy,\,z^{3},\\
+&yz^{2},\,y^{2}z,\,y^{3}\\
+2&z,\,y,\,x,\,z^{2},\,yz,\,y^{2},\,xz,\,xy,\,z^{3},\\
+&yz^{2},\,y^{2}z,\,y^{3}\\
+3&z,\,y,\,x,\,z^{2},\,yz,\,y^{2},\,xz,\,xy,\,z^{3},\\
+&yz^{2},\,y^{2}z,\,y^{3}\\
+\end{array}
+\]
+
+\[
+\mathcal P_a:\qquad\begin{array}{c|l}
+0&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,yz,\,yz^{2},\,yz^{3},\\
+&x,\,y^{2},\,xz,\,y^{2}z,\,xz^{2},\,xz^{3},\,xy,\,y^{3},\,xyz,\\
+&x^{2},\,x^{2}z\\
+1&z,\,z^{2},\,z^{3},\,z^{4},\,y,\,yz,\,yz^{2},\,x,\,y^{2},\\
+&xz,\,xz^{2},\,xy,\,y^{3},\,x^{2}\\
+2&z,\,z^{2},\,z^{3},\,z^{4},\,y,\,yz,\,yz^{2},\,x,\,y^{2},\\
+&xz,\,xz^{2},\,xy,\,x^{2}\\
+3&z,\,z^{2},\,z^{3},\,y,\,yz,\,x,\,y^{2},\,xz\\
+\end{array}
+\]
+
+\[
+\mathcal M_e:\qquad\begin{array}{c|l}
+0&z,\,y,\,x,\,z^{2},\,yz,\,y^{2},\,xz,\,z^{3},\,yz^{2},\\
+&x^{2},\,xz^{2},\,z^{4},\,yz^{3},\,x^{2}z,\,xz^{3},\,z^{5},\,yz^{4},\,xz^{4}\\
+1&z,\,y,\,x,\,z^{2},\,yz,\,xz,\,z^{3},\,yz^{2},\,x^{2},\\
+&xz^{2},\,z^{4},\,yz^{3},\,x^{2}z,\,xz^{3},\,z^{5},\,yz^{4},\,xz^{4}\\
+2&z,\,y,\,x,\,z^{2},\,xz,\,z^{3},\,xz^{2},\,z^{4},\,xz^{3},\\
+&z^{5}\\
+3&z,\,y,\,x,\,z^{2},\,xz,\,z^{3},\,xz^{2},\,z^{4},\,xz^{3},\\
+&z^{5}\\
+\end{array}
+\]
+
+\[
+\mathcal L_e:\qquad\begin{array}{c|l}
+0&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,x,\,yz,\,xz,\\
+&yz^{2},\,xz^{2},\,yz^{3},\,xz^{3},\,y^{2},\,xy,\,x^{2},\,y^{2}z,\,xyz,\\
+&x^{2}z\\
+1&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,x,\,yz,\,xz,\\
+&yz^{2},\,xz^{2},\,y^{2},\,xy,\,x^{2}\\
+2&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,x,\,yz,\,xz,\\
+&yz^{2},\,xz^{2},\,y^{2},\,xy,\,x^{2}\\
+3&z,\,z^{2},\,z^{3},\,z^{4},\,y,\,x,\,yz,\,xz\\
+\end{array}
+\]
+
+\[
+\mathcal C_e:\qquad\begin{array}{c|l}
+0&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,x,\,yz,\,xz,\\
+&yz^{2},\,xz^{2},\,yz^{3},\,xz^{3},\,yz^{4},\,xz^{4},\,y^{2},\,xy,\,x^{2},\\
+&y^{2}z,\,xyz\\
+1&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,x,\,yz,\,xz,\\
+&yz^{2},\,xz^{2},\,yz^{3},\,xz^{3},\,yz^{4},\,xz^{4},\,y^{2},\,xy,\,x^{2}\\
+2&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,x,\,yz,\,xz,\\
+&yz^{2},\,xz^{2},\,yz^{3},\,xz^{3},\,yz^{4},\,xz^{4},\,y^{2},\,xy\\
+\end{array}
+\]
+
+\[
+\mathcal M_d:\qquad\begin{array}{c|l}
+0&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,x,\,yz,\,xz,\\
+&yz^{2},\,xz^{2},\,yz^{3},\,xz^{3},\,y^{2},\,x^{2},\,y^{2}z\\
+1&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,x,\,yz,\,xz,\\
+&yz^{2},\,xz^{2},\,yz^{3},\,xz^{3},\,y^{2}\\
+2&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,x,\,yz,\,xz,\\
+&yz^{2},\,xz^{2},\,yz^{3},\,y^{2}\\
+3&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,x,\,yz,\,xz,\\
+&yz^{2},\,xz^{2},\,yz^{3}\\
+\end{array}
+\]
+
+\[
+\mathcal C_d:\qquad\begin{array}{c|l}
+0&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,x,\,yz,\,xz,\\
+&yz^{2},\,xz^{2},\,yz^{3},\,xz^{3},\,yz^{4},\,xz^{4}\\
+1&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,x,\,yz,\,xz,\\
+&yz^{2},\,xz^{2},\,yz^{3},\,xz^{3},\,yz^{4}\\
+2&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,x,\,yz,\,xz,\\
+&yz^{2},\,xz^{2},\,yz^{3},\,xz^{3}\\
+3&z,\,z^{2},\,z^{3},\,z^{4},\,z^{5},\,y,\,x,\,yz,\,xz,\\
+&yz^{2},\,xz^{2},\,yz^{3},\,xz^{3}\\
+\end{array}
+\]
+
+\section{Sextic supplementary arguments and certificates}
+
+\label{supp:sextic}
+
+The following rows specify the regular sextic certificates of Section~\partIIref{low:degree6}.
+
+\subsection{Regular certificate rows}\label{low:6:s6r:rows}
+
+A listed monomial in row group $r$ denotes its coefficient at sample state $h_r$. The groups below list all $83$ outputs for each certificate. Grouping by the sample index can change only the determinant sign. Formula~\partIeqref{low:5:rd5:matrix_entry}, the indicated model states, and these lists determine each matrix without an unspecified pivot choice. The complete original coefficient basis is used in every case.
+
+\paragraph*{Certificate $L_4$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(yz^{5}\), \(y^{2}\), \(y^{2}z\), \(y^{2}z^{2}\), \(y^{2}z^{3}\), \(y^{2}z^{4}\), \(xz^{3}\), \(xz^{4}\), \(xz^{5}\), \(y^{3}z\), \(y^{3}z^{2}\), \(y^{3}z^{3}\), \(xyz^{4}\), \(y^{4}\), \(y^{4}z\), \(y^{4}z^{2}\), \(xy^{2}z^{3}\), \(y^{5}z\), \(y^{6}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(yz^{5}\), \(y^{2}z\), \(y^{2}z^{2}\), \(y^{2}z^{3}\), \(y^{2}z^{4}\), \(xz^{4}\), \(xz^{5}\), \(y^{3}z^{2}\), \(y^{3}z^{3}\), \(y^{4}z\), \(y^{4}z^{2}\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(yz^{5}\), \(y^{2}z\), \(y^{2}z^{2}\), \(y^{2}z^{3}\), \(y^{2}z^{4}\), \(xz^{4}\), \(xz^{5}\), \(y^{3}z^{2}\), \(y^{3}z^{3}\), \(y^{4}z\), \(y^{4}z^{2}\)\\
+3 & \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(yz^{3}\), \(yz^{4}\), \(yz^{5}\), \(y^{2}z^{2}\), \(y^{2}z^{3}\), \(y^{2}z^{4}\), \(xz^{5}\), \(y^{3}z^{3}\), \(y^{4}z^{2}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $Q_3$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(yz^{5}\), \(x\), \(y^{2}\), \(xz\), \(y^{2}z\), \(xz^{2}\), \(y^{2}z^{2}\), \(xz^{3}\), \(y^{2}z^{3}\), \(xz^{4}\), \(y^{2}z^{4}\), \(xz^{5}\), \(xy\), \(y^{3}\), \(xyz\), \(y^{3}z\), \(xyz^{2}\), \(y^{3}z^{2}\), \(x^{2}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(yz^{5}\), \(x\), \(y^{2}\), \(xz\), \(y^{2}z\), \(xz^{2}\), \(y^{2}z^{2}\), \(xz^{3}\), \(y^{2}z^{3}\), \(xz^{4}\), \(y^{2}z^{4}\), \(xz^{5}\), \(xy\), \(y^{3}\), \(xyz\), \(y^{3}z\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(yz^{5}\), \(x\), \(y^{2}\), \(xz\), \(y^{2}z\), \(xz^{2}\), \(y^{2}z^{2}\), \(xz^{3}\), \(y^{2}z^{3}\), \(xz^{4}\), \(y^{2}z^{4}\), \(xz^{5}\), \(xy\), \(y^{3}\), \(xyz\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $P_4$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(x\), \(x^{2}\), \(x^{3}\), \(x^{4}\), \(x^{5}\), \(x^{6}\), \(z\), \(xz\), \(x^{2}z\), \(x^{3}z\), \(x^{4}z\), \(y\), \(xy\), \(x^{2}y\), \(x^{3}y\), \(x^{4}y\), \(z^{2}\), \(xz^{2}\), \(x^{2}z^{2}\), \(yz\), \(xyz\), \(x^{2}yz\), \(z^{3}\), \(y^{2}\), \(xy^{2}\), \(x^{2}y^{2}\), \(yz^{2}\), \(y^{2}z\), \(y^{3}\)\\
+1 & \(x\), \(x^{2}\), \(x^{3}\), \(x^{4}\), \(x^{5}\), \(z\), \(xz\), \(x^{2}z\), \(x^{3}z\), \(y\), \(xy\), \(x^{2}y\), \(x^{3}y\), \(z^{2}\), \(xz^{2}\), \(yz\), \(xyz\), \(z^{3}\), \(y^{2}\), \(xy^{2}\)\\
+2 & \(x\), \(x^{2}\), \(x^{3}\), \(x^{4}\), \(x^{5}\), \(z\), \(xz\), \(x^{2}z\), \(x^{3}z\), \(y\), \(xy\), \(x^{2}y\), \(x^{3}y\), \(z^{2}\), \(xz^{2}\), \(yz\), \(xyz\), \(z^{3}\), \(y^{2}\), \(xy^{2}\)\\
+3 & \(x\), \(x^{2}\), \(x^{3}\), \(x^{4}\), \(z\), \(xz\), \(x^{2}z\), \(y\), \(xy\), \(x^{2}y\), \(z^{2}\), \(yz\), \(z^{3}\), \(y^{2}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $M_5$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(yz^{5}\), \(x\), \(xz\), \(xz^{2}\), \(xz^{3}\), \(xz^{4}\), \(xz^{5}\), \(y^{2}\), \(y^{2}z\), \(y^{2}z^{2}\), \(x^{2}\), \(y^{3}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(yz^{5}\), \(x\), \(xz\), \(xz^{2}\), \(xz^{3}\), \(xz^{4}\), \(xz^{5}\), \(y^{2}\), \(y^{2}z\), \(y^{2}z^{2}\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(x\), \(y^{2}\), \(y^{2}z\), \(y^{2}z^{2}\)\\
+3 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(x\)\\
+4 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(x\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $L_5$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(yz^{5}\), \(xz\), \(xz^{2}\), \(xz^{3}\), \(xz^{4}\), \(xz^{5}\), \(y^{2}z^{3}\), \(y^{2}z^{4}\), \(xyz^{3}\), \(xyz^{4}\), \(x^{2}z^{2}\), \(x^{2}z^{3}\), \(x^{2}z^{4}\), \(x^{3}z^{3}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(yz^{5}\), \(xz^{2}\), \(xz^{3}\), \(xz^{4}\), \(xz^{5}\), \(y^{2}z^{4}\), \(xyz^{3}\), \(xyz^{4}\), \(x^{2}z^{3}\), \(x^{2}z^{4}\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(yz^{3}\), \(yz^{4}\), \(yz^{5}\), \(xz^{2}\), \(xz^{3}\), \(xz^{4}\), \(xz^{5}\), \(y^{2}z^{4}\), \(xyz^{4}\), \(x^{2}z^{3}\), \(x^{2}z^{4}\)\\
+3 & \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(yz^{3}\), \(yz^{4}\), \(yz^{5}\), \(xz^{3}\), \(xz^{4}\), \(xz^{5}\), \(xyz^{4}\), \(x^{2}z^{4}\)\\
+4 & \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(yz^{4}\), \(yz^{5}\), \(xz^{3}\), \(xz^{4}\), \(xz^{5}\), \(x^{2}z^{4}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $R_4$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(x\), \(y\), \(xz\), \(yz\), \(xz^{2}\), \(yz^{2}\), \(xz^{3}\), \(yz^{3}\), \(xz^{4}\), \(yz^{4}\), \(xz^{5}\), \(x^{2}\), \(xy\), \(y^{2}\), \(xyz\), \(y^{2}z\), \(y^{2}z^{2}\), \(y^{3}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(x\), \(y\), \(xz\), \(yz\), \(xz^{2}\), \(yz^{2}\), \(xz^{3}\), \(yz^{3}\), \(xz^{4}\), \(yz^{4}\), \(xz^{5}\), \(x^{2}\), \(xy\), \(y^{2}\), \(y^{2}z\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(x\), \(y\), \(xz\), \(yz\), \(xz^{2}\), \(yz^{2}\), \(xz^{3}\), \(yz^{3}\), \(xz^{4}\), \(yz^{4}\), \(xy\), \(y^{2}\), \(y^{2}z\)\\
+3 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(x\), \(y\), \(xz\), \(yz\), \(xz^{2}\), \(yz^{2}\), \(xz^{3}\), \(yz^{3}\), \(xz^{4}\), \(yz^{4}\), \(xy\), \(y^{2}\), \(y^{2}z\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $Q_4$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(yz^{5}\), \(xz^{5}\), \(y^{2}\), \(xy\), \(x^{2}\), \(y^{2}z\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(yz^{5}\), \(xz^{5}\), \(y^{2}\), \(xy\), \(x^{2}\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(yz^{5}\), \(xz^{5}\), \(y^{2}\), \(xy\), \(x^{2}\)\\
+3 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(yz^{5}\), \(xz^{5}\), \(x^{2}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $M_f$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(y\), \(y^{2}\), \(y^{3}\), \(y^{4}\), \(y^{5}\), \(y^{6}\), \(z\), \(x\), \(yz\), \(xy\), \(y^{2}z\), \(xy^{2}\), \(y^{3}z\), \(xy^{3}\), \(y^{4}z\), \(xy^{4}\), \(y^{5}z\), \(xy^{5}\), \(z^{2}\), \(xz\), \(x^{2}\), \(xyz\), \(x^{2}y\), \(xy^{2}z\), \(x^{2}y^{2}\), \(xy^{3}z\), \(x^{2}y^{3}\), \(x^{3}\)\\
+1 & \(y\), \(y^{2}\), \(y^{3}\), \(y^{4}\), \(y^{5}\), \(y^{6}\), \(z\), \(x\), \(yz\), \(xy\), \(y^{2}z\), \(xy^{2}\), \(y^{3}z\), \(xy^{3}\), \(y^{4}z\), \(xy^{4}\), \(y^{5}z\), \(xy^{5}\), \(z^{2}\), \(x^{2}\), \(x^{2}y\), \(x^{2}y^{2}\)\\
+2 & \(y\), \(y^{2}\), \(y^{3}\), \(y^{4}\), \(y^{5}\), \(y^{6}\), \(z\), \(x\), \(yz\), \(xy\), \(y^{2}z\), \(xy^{2}\), \(y^{3}z\), \(xy^{3}\), \(y^{4}z\), \(xy^{4}\), \(y^{5}z\), \(xy^{5}\), \(x^{2}\), \(x^{2}y\), \(x^{2}y^{2}\)\\
+3 & \(y\), \(y^{2}\), \(y^{3}\), \(y^{4}\), \(y^{5}\), \(y^{6}\), \(z\), \(x\), \(xy\), \(xy^{2}\), \(xy^{3}\), \(xy^{4}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $P_f$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(y\), \(y^{2}\), \(y^{3}\), \(y^{4}\), \(y^{5}\), \(y^{6}\), \(z\), \(yz\), \(y^{2}z\), \(y^{3}z\), \(y^{4}z\), \(x\), \(z^{2}\), \(xy\), \(yz^{2}\), \(xy^{2}\), \(y^{2}z^{2}\), \(xy^{3}\), \(xy^{4}\), \(xz\), \(z^{3}\), \(xyz\), \(xy^{2}z\), \(x^{2}\), \(xz^{2}\), \(x^{2}y\), \(x^{2}y^{2}\), \(x^{2}z\), \(x^{3}\)\\
+1 & \(y\), \(y^{2}\), \(y^{3}\), \(y^{4}\), \(y^{5}\), \(z\), \(yz\), \(y^{2}z\), \(y^{3}z\), \(x\), \(z^{2}\), \(xy\), \(yz^{2}\), \(xy^{2}\), \(xy^{3}\), \(xz\), \(z^{3}\), \(xyz\), \(x^{2}\), \(x^{2}y\)\\
+2 & \(y\), \(y^{2}\), \(y^{3}\), \(y^{4}\), \(y^{5}\), \(z\), \(yz\), \(y^{2}z\), \(y^{3}z\), \(x\), \(z^{2}\), \(xy\), \(yz^{2}\), \(xy^{2}\), \(xy^{3}\), \(xz\), \(z^{3}\), \(xyz\), \(x^{2}\), \(x^{2}y\)\\
+3 & \(y\), \(y^{2}\), \(y^{3}\), \(y^{4}\), \(z\), \(yz\), \(y^{2}z\), \(x\), \(z^{2}\), \(xy\), \(xy^{2}\), \(xz\), \(z^{3}\), \(x^{2}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $C_f$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(y\), \(x\), \(z^{2}\), \(yz\), \(y^{2}\), \(xz\), \(xy\), \(z^{3}\), \(yz^{2}\), \(y^{2}z\), \(y^{3}\), \(x^{2}\), \(xz^{2}\), \(xyz\), \(xy^{2}\), \(z^{4}\), \(yz^{3}\), \(y^{2}z^{2}\), \(y^{3}z\), \(y^{4}\), \(x^{2}z\)\\
+1 & \(z\), \(y\), \(x\), \(z^{2}\), \(yz\), \(y^{2}\), \(xz\), \(xy\), \(z^{3}\), \(yz^{2}\), \(y^{2}z\), \(y^{3}\), \(x^{2}\), \(xz^{2}\), \(xyz\), \(xy^{2}\), \(z^{4}\), \(yz^{3}\), \(y^{2}z^{2}\), \(y^{3}z\), \(y^{4}\)\\
+2 & \(z\), \(y\), \(x\), \(z^{2}\), \(yz\), \(y^{2}\), \(xz\), \(xy\), \(z^{3}\), \(yz^{2}\), \(y^{2}z\), \(y^{3}\), \(x^{2}\), \(xz^{2}\), \(xyz\), \(xy^{2}\), \(z^{4}\), \(yz^{3}\), \(y^{2}z^{2}\), \(y^{3}z\), \(y^{4}\)\\
+3 & \(z\), \(y\), \(x\), \(z^{2}\), \(yz\), \(y^{2}\), \(xz\), \(xy\), \(z^{3}\), \(yz^{2}\), \(y^{2}z\), \(y^{3}\), \(x^{2}\), \(xz^{2}\), \(xyz\), \(xy^{2}\), \(z^{4}\), \(yz^{3}\), \(y^{2}z^{2}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $P_a$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(yz^{4}\), \(x\), \(y^{2}\), \(xz\), \(y^{2}z\), \(xz^{2}\), \(y^{2}z^{2}\), \(xz^{3}\), \(xz^{4}\), \(xy\), \(y^{3}\), \(xyz\), \(xyz^{2}\), \(x^{2}\), \(xy^{2}\), \(x^{2}z\), \(x^{2}z^{2}\), \(x^{2}y\), \(x^{3}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(x\), \(y^{2}\), \(xz\), \(y^{2}z\), \(xz^{2}\), \(xz^{3}\), \(xy\), \(y^{3}\), \(xyz\), \(x^{2}\), \(x^{2}z\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(yz\), \(yz^{2}\), \(yz^{3}\), \(x\), \(y^{2}\), \(xz\), \(y^{2}z\), \(xz^{2}\), \(xz^{3}\), \(xy\), \(y^{3}\), \(xyz\), \(x^{2}\), \(x^{2}z\)\\
+3 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(y\), \(yz\), \(yz^{2}\), \(x\), \(y^{2}\), \(xz\), \(xz^{2}\), \(xy\), \(y^{3}\), \(x^{2}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $M_e$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(y\), \(x\), \(z^{2}\), \(yz\), \(y^{2}\), \(xz\), \(xy\), \(z^{3}\), \(yz^{2}\), \(x^{2}\), \(xz^{2}\), \(xyz\), \(z^{4}\), \(yz^{3}\), \(x^{2}z\), \(xz^{3}\), \(xyz^{2}\), \(z^{5}\), \(yz^{4}\), \(x^{3}\), \(x^{2}z^{2}\), \(xz^{4}\), \(xyz^{3}\), \(z^{6}\), \(yz^{5}\), \(x^{2}z^{3}\), \(xz^{5}\)\\
+1 & \(z\), \(y\), \(x\), \(z^{2}\), \(yz\), \(y^{2}\), \(xz\), \(z^{3}\), \(yz^{2}\), \(x^{2}\), \(xz^{2}\), \(z^{4}\), \(yz^{3}\), \(x^{2}z\), \(xz^{3}\), \(z^{5}\), \(yz^{4}\), \(x^{2}z^{2}\), \(xz^{4}\), \(z^{6}\), \(yz^{5}\), \(xz^{5}\)\\
+2 & \(z\), \(y\), \(x\), \(z^{2}\), \(yz\), \(xz\), \(z^{3}\), \(yz^{2}\), \(x^{2}\), \(xz^{2}\), \(z^{4}\), \(yz^{3}\), \(x^{2}z\), \(xz^{3}\), \(z^{5}\), \(yz^{4}\), \(x^{2}z^{2}\), \(xz^{4}\), \(z^{6}\), \(yz^{5}\), \(xz^{5}\)\\
+3 & \(z\), \(y\), \(x\), \(z^{2}\), \(xz\), \(z^{3}\), \(xz^{2}\), \(z^{4}\), \(xz^{3}\), \(z^{5}\), \(xz^{4}\), \(z^{6}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $L_e$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(y^{2}\), \(xy\), \(x^{2}\), \(y^{2}z\), \(xyz\), \(x^{2}z\), \(y^{2}z^{2}\), \(xyz^{2}\), \(x^{2}z^{2}\), \(y^{3}\), \(xy^{2}\), \(x^{2}y\), \(x^{3}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(y^{2}\), \(xy\), \(x^{2}\), \(y^{2}z\), \(xyz\), \(x^{2}z\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(y^{2}\), \(xy\), \(x^{2}\), \(y^{2}z\), \(xyz\), \(x^{2}z\)\\
+3 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(y^{2}\), \(xy\), \(x^{2}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $C_e$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(yz^{5}\), \(xz^{5}\), \(y^{2}\), \(xy\), \(x^{2}\), \(y^{2}z\), \(xyz\), \(x^{2}z\), \(y^{2}z^{2}\), \(xyz^{2}\), \(x^{2}z^{2}\), \(xyz^{3}\), \(y^{3}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(yz^{5}\), \(xz^{5}\), \(y^{2}\), \(xy\), \(x^{2}\), \(y^{2}z\), \(xyz\), \(x^{2}z\), \(y^{2}z^{2}\), \(xyz^{2}\), \(x^{2}z^{2}\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(yz^{5}\), \(xz^{5}\), \(y^{2}\), \(xy\), \(x^{2}\), \(y^{2}z\), \(xyz\), \(x^{2}z\), \(y^{2}z^{2}\), \(xyz^{2}\), \(x^{2}z^{2}\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $M_d$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(yz^{5}\), \(xz^{5}\), \(y^{2}\), \(xy\), \(x^{2}\), \(y^{2}z\), \(xyz\), \(y^{2}z^{2}\), \(y^{3}\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(y^{2}\), \(xy\), \(x^{2}\), \(y^{2}z\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(y^{2}\), \(xy\), \(y^{2}z\)\\
+3 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(y^{2}\), \(xy\), \(y^{2}z\)\\
+\end{tabular}
+\end{center}
+
+\paragraph*{Certificate $C_d$}
+\begin{center}
+\begin{tabular}{rp{0.86\linewidth}}
+$r$ & Output monomials\\\hline
+0 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(yz^{5}\), \(xz^{5}\), \(y^{2}\), \(xy\), \(x^{2}\), \(y^{2}z\)\\
+1 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(yz^{5}\), \(xz^{5}\), \(y^{2}\), \(xy\), \(x^{2}\)\\
+2 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(yz^{5}\), \(xz^{5}\), \(y^{2}\), \(xy\), \(x^{2}\)\\
+3 & \(z\), \(z^{2}\), \(z^{3}\), \(z^{4}\), \(z^{5}\), \(z^{6}\), \(y\), \(x\), \(yz\), \(xz\), \(yz^{2}\), \(xz^{2}\), \(yz^{3}\), \(xz^{3}\), \(yz^{4}\), \(xz^{4}\), \(yz^{5}\), \(xz^{5}\), \(x^{2}\)\\
+\end{tabular}
+\end{center}
+
+\section{Degree-seven and degree-eight supplementary material}
+
+
+\label{supp:seven-eight}
+
+\subsection{Reproducing the regular certificates}\label{supp:seven-eight:verification}
+
+Apply the finite verification procedure in main-text Section~\partIIref{low:78:h3r:section} to all $N_7=119$ or $N_8=164$ input columns and the fixed rows specified below. It reproduces the output sums, grading multiplicities, nonzero residues in Table~\partIIref{low:78:h3r:residues}, and all $44$ scale minima in Table~\partIIref{low:78:h3r:ledger}, whose degree minima are $243$ and $382$.
+
+\subsubsection{Fixed regular sampling rows}\label{low:78:h3r:row-appendix}
+
+The complete row sets are in the following files under \path{certificates/regular_finite/} in the accompanying source package:
+\[
+\begin{array}{ccl}
+k&N_k&\text{file}\\
+7&119&\texttt{regular\_degree\_7\_certificates.json}\\
+8&164&\texttt{regular\_degree\_8\_certificates.json}.
+\end{array}
+\]
+The manifest \path{proof_certificate_manifest.json} in that directory gives their SHA-256 checksums. In each file, the entries of the \texttt{cases} array follow the case order of the main-text tables, numbered $1$ through $22$. The case records its model, sample count $m$, diagonal-scale exponents and sampling-net exponents. Its sole \texttt{certificates} entry contains \texttt{rows}, a list of pairs $[t,[i,j,\ell]]$: the row is the coefficient of $x^iy^jz^\ell$ at sample $t$. Each certificate has exactly $N_k$ rows and keeps all $N_k$ input columns in the order fixed before \partIeqref{low:78:h3r:entry}. The triple \texttt{R} is the sum of the output exponents, counting each selected sample row once. Row permutations affect only the determinant sign.
+
+From the source package's \texttt{certificates} directory, run
+\begin{verbatim}
+python regular_finite/verify_regular_certificates.py 7 8
+\end{verbatim}
+The verifier reads these fixed rows without a row search, reconstructs their entries by the stated multinomial formula, checks the nonzero determinants modulo $1000033$ and required grading multiplicities, and evaluates the scale exponents at every exact rational vertex. The original expanded row lists are also retained in \path{regular_finite/printed_row_lists_7_13.tex}.
+
+\section{Exact finite verification in degrees nine through thirteen}
+
+\subsection{Exact finite verification}\label{low:verification-method}
+The saved row lists define the certificates. Formula~\partIeqref{low:5:rd5:matrix_entry} constructs their entries by exact polynomial expansion. Verification uses rational Gaussian elimination or row-denominator clearing followed by integer Bareiss elimination. The supplied checks include the vertices of the regular scale polytopes, the quintic restriction and reconstruction blocks, the derivative-factorial constants, and the degree-nine factorization.
+
+\subsubsection{Determinants and scale polytopes}
+For an input monomial $(i,j,\ell)$, output exponent $(a,y,z)$, and sample parameters $(A,B,C,D,E,F)$, the entry \partIeqref{low:finite-entry} equals
+\[
+\begin{multlined}
+\sum_{\substack{b,c,e,f\ge0\\a+b+c\le i,\ b\le y,\ y-b+e\le j\\c+e+f=z,\ f\le\ell}}
+\frac{i!}{a!b!c!(i-a-b-c)!}
+\frac{j!}{(y-b)!e!(j-y+b-e)!}
+\binom{\ell}{f}\\
+{}\times
+A^bB^cC^{i-a-b-c}D^eE^{j-y+b-e}F^{\ell-f}.
+\end{multlined}
+\]
+The sum is empty if any displayed exponent is negative. This follows by expanding the three affine factors independently and equating the output exponents. It gives an integer sum of rational sample powers and is used directly in the verifier.
+
+The modular checks use exact Gaussian elimination over $\mathbb F_{1000033}$, including row-interchange signs. Primality is checked by trial division by the primes at most $1000$; denominators are invertible because their prime factors are $2,3$. Row sums and scale exponents use exact integer and rational arithmetic. The characteristic-zero implication and bounded-polytope vertex test are the common finite verification procedure in main-text Section~\partIIref{low:78:h3r:section}.
+
+
+\subsubsection{Fixed sampling rows in degrees nine through thirteen}\label{low:row-masks}
+
+Use the following files under \path{certificates/regular_finite/}, with the row convention of Section~\ref{low:78:h3r:row-appendix}:
+\[
+\begin{array}{cccl}
+k&N_k&\text{minimum exponent}&\text{file}\\
+9&219&518&\texttt{regular\_degree\_9\_lifted\_certificates.json}\\
+10&285&819&\texttt{regular\_degree\_10\_certificates.json}\\
+11&363&1139&\texttt{regular\_degree\_11\_certificates.json}\\
+12&454&1544&\texttt{regular\_degree\_12\_certificates.json}\\
+13&559&2046&\texttt{regular\_degree\_13\_certificates.json}.
+\end{array}
+\]
+Each file specifies all $22$ cases. The case numbers, sample models, diagonal scales and original sampling nets are those of Tables~\partIref{reg:all-regimes}, \partIref{reg:all-costs} and~\partIIref{low:78:h3r:domains}. The manifest \path{proof_certificate_manifest.json} identifies these exact files by SHA-256 checksums. Degree nine uses the lifted row sets from Section~\partIIref{low:9:root9:regular}, not the separate refreshed degree-nine file.
+
+The input monomials are ordered by increasing total degree, then increasing $x$ exponent, then increasing $y$ exponent. The sample times are $t=0,\ldots,m-1$. The saved row list and the multinomial entry formula above therefore specify the full rational square matrix. The original hexadecimal encodings are retained in \path{regular_finite/printed_row_lists_7_13.tex}; they select exactly the same rows.
+
+From the source package's \texttt{certificates} directory, run
+\begin{verbatim}
+python regular_finite/verify_regular_certificates.py 10 11 12 13
+python - <<'PY'
+import sys
+sys.path.insert(0, "regular_finite")
+from verify_regular_certificates import verify
+verify(9, lifted=True)
+PY
+\end{verbatim}
+These commands reconstruct all $110$ fixed minors, check nonvanishing and the required grades, and recover the displayed minima by exact rational vertex evaluation. No choice of rows is made during verification.
+
+\section{Normal determinant factors in degrees six through nine}\label{supp:normal-factors}
+
+For $6\le D\le9$, use the fixed-graph rows associated with~\partIeqref{surf:ordinary-list}. Order the input columns $x^ay^bz^c$ first by $a+b+c=1,\ldots,D$, then by $a$, then by $b$. The row groups are normal order zero on $I_D\setminus\{(0,0)\}$, normal order two on $I_{D-3}$, normal order one on $E_D$, and then normal order $r$ on $I_{D-2r}$ for increasing $3\le r\le\lfloor D/2\rfloor$. Use lexicographic tangential order within each grid. For $E_6$ use lexicographic order on the whole set; for $D\ge7$, order $I_{D-3}$ lexicographically and then append $(D-2,0),(0,D-2)$. Group equal weights, preserving these orders within each block. A different full ordering affects only the overall determinant sign.
+
+At $Q=ty^2+yz+z^2$, the entry in row $(r,i,j)$ and column $(a,b,c)$ is zero for $a<r$, and otherwise is
+\begin{equation}\label{supp:normal-matrix-entry}
+\sum_{\substack{\alpha+\beta+\gamma=a-r\\2\alpha+\beta+b=i\\\beta+2\gamma+c=j}}\frac{a!}{\alpha!\beta!\gamma!}\,t^\alpha.
+\end{equation}
+The row weight $2r+i+j$ equals the column weight $2a+b+c$ for every nonzero entry, so the determinant is the product of the square weight-block determinants. These entries are tangential Taylor coefficients with normal derivatives left as derivatives. For the actual moving graph, Lemma~\partIref{surf:strong-atlas} supplies the separate factor $\lambda^{-|E_D|}$ and the external linear character.
+
+From the source package's \texttt{certificates} directory, run
+\begin{verbatim}
+python run_inherited_checks.py normal78
+python normal_degree9/degree9_exact.py
+\end{verbatim}
+The first command checks the saved degree-eight polynomial and its factors; the second reconstructs the degree-nine weighted blocks. To regenerate the degree-eight polynomial before checking it, first run \texttt{python run\_inherited\_checks.py normal78\_rebuild}. The certificate README records the dependencies and individual scripts.
+
+\subsection{The degree-six slope factorization}\label{supp:g6-factors}
+Use $D=6$ and write $g=g_6$. The factors are
+\[
+\begin{aligned}
+f_1(t)&=2t-1,& f_2(t)&=6t+1,& f_3(t)&=4t^2+1,\\
+f_4(t)&=2t^2-t+1,& f_5(t)&=2t^2+6t+1,\\
+f_6(t)&=t^3-6t^2+5t-1,& f_7(t)&=6t^3+6t^2-5t+1,\\
+f_8(t)&=20t^3+90t^2+30t+1.
+\end{aligned}
+\]
+The remaining three polynomials are
+\[
+\begin{aligned}
+f_9(t)&=60t^4-60t^3+40t^2-2t+1,\\
+f_{10}(t)&=100t^5-300t^4-200t^3-160t^2-15t-1,\\
+f_{11}(t)&=36t^6-180t^5+60t^4+8t^3+9t^2-3t+1.
+\end{aligned}
+\]
+In this convention, up to an overall sign,
+\begin{equation}\label{low:6:wc36:factorization}
+g(t)=56623104 f_1(t)f_2(t)^2f_3(t)^2\prod_{j=4}^{11}f_j(t).
+\end{equation}
+Group the common matrix~\eqref{supp:normal-matrix-entry} by weight. The twelve square blocks have the following determinants:
+\[
+\begin{array}{c|r|l@{\qquad}c|r|l}
+\toprule
+\text{Weight}&\text{Size}&\text{Determinant}&\text{Weight}&\text{Size}&\text{Determinant}\\
+\midrule
+1&2&1&7&12&-16f_3f_6\\
+2&4&-1&8&9&-32f_1f_2f_4f_7\\
+3&6&1&9&6&36f_3f_{11}\\
+4&9&2&10&4&-8f_2f_5f_9\\
+5&12&4&11&2&-f_{10}\\
+6&16&-48&12&1&f_8\\
+\bottomrule
+\end{array}
+\]
+Each entry of this table follows by polynomial elimination from \eqref{supp:normal-matrix-entry}; its matrix, order, and all factors are specified here. Multiplying the twelve entries gives \eqref{low:6:wc36:factorization}. In particular $\deg g=35$ and $g(0)\ne0$.
+
+For an arithmetic certificate of the root multiplicities, put $R=\prod_{j=1}^{11}f_j$ and reduce its coefficients modulo $101$. Its degree remains $32$. Starting with $R_0=R$ and $R_1=R'$, perform Euclidean division over $\mathbb F_{101}$, without normalizing the remainders: $R_{j+1}=\operatorname{rem}(R_{j-1},R_j)$. The successive degrees are $32,31,\ldots,0$, and the corresponding leading coefficients, in that order, are
+\[
+\begin{gathered}
+37,73,73,22,82,15,83,91,40,85,17,\\
+64,46,24,65,19,11,32,20,21,80,100,\\
+93,53,61,73,8,84,97,8,35,6,25.
+\end{gathered}
+\]
+Thus the last nonzero remainder is the constant $25$. This finite calculation uses only the displayed polynomials and the stated remainder recursion. It proves that $R$ is squarefree over $\mathbb Q$, so its eleven factors are squarefree and pairwise relatively prime. Consequently the only repeated factors of $g$ are the two squares explicitly shown in \eqref{low:6:wc36:factorization}.
+
+
+\subsection{The degree-seven slope factorization}\label{supp:g7-factors}
+Define
+\begin{align*}
+f_1&=t+1,& f_2&=2t-1,& f_3&=t^2-3t+1,\\
+f_4&=2t^2-4t+1,& f_5&=6t^2-3t+1,& f_6&=6t^2+12t+1,\\
+f_7&=10t^2+10t+1,& f_8&=4t^3-6t^2-1,& f_9&=9t^3-18t^2-3t-1,\\
+f_{10}&=140t^3+210t^2+42t+1,&&&&
+\end{align*}
+and
+\begin{align*}
+f_{11}&=60t^4-20t^3-12t^2+6t-1,\\
+f_{12}&=200t^5-300t^4+100t^3-80t^2-1,\\
+f_{13}&=16t^6+20t^4-32t^3+24t^2-8t+1,\\
+f_{14}&=400t^6+2100t^4+1120t^3+360t^2+24t+1,\\
+f_{15}&=400t^8+1600t^6-1280t^5+360t^4+64t^3+16t^2+1.
+\end{align*}
+In ordinary Taylor-coordinate convention, with the normal derivatives left as derivatives,
+\begin{equation}\label{low:78:h3n:g7-factor}
+g_7(t)=-125241246351360\,f_1^2f_2f_3f_4f_5^2f_6^2f_7f_8f_9^2f_{10}f_{11}f_{12}f_{13}f_{14}f_{15},
+\end{equation}
+up to the irrelevant sign of a common row ordering.
+
+The common matrix~\eqref{supp:normal-matrix-entry}, grouped by weight, has the following block determinants:
+\[
+\begin{array}{c|r|l}
+\text{weight}&\text{size}&\text{determinant}\\\hline
+1&2&1\\2&4&-1\\3&6&1\\4&9&2\\5&12&4\\6&16&-48\\7&20&-576\\
+8&16&192f_1f_2f_4f_5\\
+9&12&-64f_3f_9f_{13}\\
+10&9&72f_1f_5f_6f_8f_{11}\\
+11&6&-64f_9f_{15}\\
+12&4&10f_6f_7f_{12}\\
+13&2&f_{14}\\
+14&1&f_{10}
+\end{array}
+\]
+Each entry follows by polynomial elimination in the explicitly specified matrix \eqref{supp:normal-matrix-entry}. Multiplying the blocks gives \eqref{low:78:h3n:g7-factor}; thus its degree is $58$. The accompanying script constructs these matrices over the rationals.
+
+Use the Euclidean remainder procedure of Section~\ref{supp:g6-factors} with $R=\prod_{j=1}^{15}f_j$, now reduced modulo $109$. Its degree remains $50$. The successive remainder degrees are $50,49,\ldots,0$, and their leading coefficients in that order are
+\[
+\begin{gathered}
+46,11,63,13,92,34,70,81,4,76,12,63,60,55,89,59,56,\\
+88,40,87,64,106,104,80,90,9,8,103,22,28,39,52,94,73,\\
+28,8,59,97,29,4,77,73,35,22,54,71,86,48,76,40,85.
+\end{gathered}
+\]
+The last remainder is the nonzero constant $85$. The same squarefreeness criterion shows that the displayed factors are squarefree and pairwise relatively prime over $\mathbb Q$. Every zero of $g_7$ therefore has multiplicity at most two.
+\subsection{The degree-eight slope factorization}\label{supp:g8-factors}
+With the common ordering above, the sixteen weight-block sizes are $2,4,6,9,12,16,20,25,20,16,12,9,6,4,2,1$. The polynomial $g_8(t)$ is $1436038493741642258841600$ times the product of the following factors with their listed multiplicities.
+
+{\small
+\begin{longtable}{r p{.84\textwidth}}
+\toprule Mult. & Factor $f(t)$ \\ \midrule \endhead
+1 & $2 t + 1$ \\
+1 & $3 t - 1$ \\
+2 & $3 t + 1$ \\
+3 & $t - 1$ \\
+2 & $30 t^{2} + 20 t + 1$ \\
+1 & $t^{3} - 9 t^{2} + 6 t - 1$ \\
+1 & $2 t^{3} + 3 t^{2} - 3 t + 1$ \\
+1 & $5 t^{3} + 30 t^{2} + 15 t + 1$ \\
+2 & $18 t^{3} - 18 t^{2} + 3 t - 1$ \\
+1 & $10 t^{4} - 10 t^{3} + 15 t^{2} - 7 t + 1$ \\
+1 & $10 t^{4} - 10 t^{3} + 15 t^{2} + 2 t + 1$ \\
+1 & $70 t^{4} + 560 t^{3} + 420 t^{2} + 56 t + 1$ \\
+2 & $9 t^{4} + 6 t^{2} - 4 t + 1$ \\
+2 & $36 t^{4} + 60 t^{2} + 8 t + 1$ \\
+1 & $100 t^{6} + 300 t^{5} - 300 t^{4} + 70 t^{3} + 15 t^{2} - 6 t + 1$ \\
+1 & $700 t^{6} - 1050 t^{5} + 1050 t^{4} - 35 t^{3} + 150 t^{2} + 3 t + 1$ \\
+1 & $1225 t^{7} - 4900 t^{6} - 7350 t^{5} - 11270 t^{4} - 3955 t^{3} - 714 t^{2} - 35 t - 1$ \\
+1 & $100 t^{9} - 900 t^{8} + 900 t^{7} - 120 t^{6} + 45 t^{5} - 99 t^{4} + 75 t^{3} - 36 t^{2} + 9 t - 1$ \\
+1 & $2500 t^{10} - 17500 t^{9} + 10125 t^{6} - 3825 t^{5} + 1950 t^{4} + 300 t^{3} + 45 t^{2} + 5 t + 1$ \\
+\bottomrule
+\end{longtable}
+
+Polynomial elimination in~\eqref{supp:normal-matrix-entry} gives the displayed product, of degree $92$. Exact Euclidean greatest-common-divisor checks show that each listed factor is squarefree and that distinct factors are relatively prime. Reduction of their squarefree product modulo $1000003$ preserves its degree $76$ and has greatest common divisor one with its derivative. The largest factor multiplicity is three, occurring only at $t=1$. The exact determinant construction, factors, and rational and modular checks are supplied with the certificate files. Lemma~\partIref{atlas:finite-slopes} excludes this triple root from the real slope substitution.
+\subsection{The degree-nine slope factorization}\label{low:g9-factors}
+For the common row and column ordering above, write $g_9(t)=c\prod_j f_j(t)^{e_j}$, where
+\[
+c=-1912043609692567320810203199468837273600.
+\]
+The following table supplies every factor and multiplicity. They are obtained by polynomial elimination in~\eqref{supp:normal-matrix-entry}; multiplication of the weight-block determinants gives this identity over $\mathbb Q[t]$.
+{\small
+\begin{longtable}{r r p{.79\textwidth}}
+\toprule $j$ & $e_j$ & $f_j(t)$ \\\midrule\endhead
+1&1& $2 t - 1$ \\
+2&1& $6 t + 1$ \\
+3&1& $t^{2} - 3 t + 1$ \\
+4&1& $4 t^{2} + 1$ \\
+5&1& $5 t^{2} - 5 t + 1$ \\
+6&2& $2 t^{2} - t + 1$ \\
+7&2& $2 t^{2} + 6 t + 1$ \\
+8&1& $t^{3} - 6 t^{2} + 5 t - 1$ \\
+9&1& $35 t^{3} + 70 t^{2} + 21 t + 1$ \\
+10&2& $6 t^{3} + 6 t^{2} - 5 t + 1$ \\
+11&2& $20 t^{3} + 90 t^{2} + 30 t + 1$ \\
+12&1& $15 t^{4} - 5 t^{3} - 6 t^{2} + 3 t - 1$ \\
+13&1& $630 t^{4} + 1680 t^{3} + 756 t^{2} + 72 t + 1$ \\
+14&2& $60 t^{4} - 60 t^{3} + 40 t^{2} - 2 t + 1$ \\
+15&1& $25 t^{5} - 50 t^{4} - 35 t^{2} - 5 t - 1$ \\
+16&2& $\begin{gathered}100 t^{5} - 300 t^{4} - 200 t^{3} - 160 t^{2} - 15 t\\-1\end{gathered}$ \\
+17&1& $\begin{gathered}50 t^{6} - 150 t^{5} + 75 t^{4} - 45 t^{3} + 30 t^{2}\\- 9 t + 1\end{gathered}$ \\
+18&2& $\begin{gathered}36 t^{6} - 180 t^{5} + 60 t^{4} + 8 t^{3} + 9 t^{2}\\- 3 t + 1\end{gathered}$ \\
+19&1& $\begin{gathered}1750 t^{7} - 1575 t^{5} + 900 t^{4} - 200 t^{3} - 15 t^{2}\\+5 t - 1\end{gathered}$ \\
+20&1& $\begin{gathered}2450 t^{7} - 4900 t^{6} + 2450 t^{5} - 3430 t^{4} - 385 t^{3}\\- 266 t^{2} - 7 t - 1\end{gathered}$ \\
+21&1& $\begin{gathered}25 t^{8} + 50 t^{6} - 140 t^{5} + 195 t^{4} - 144 t^{3}\\+58 t^{2} - 12 t + 1\end{gathered}$ \\
+22&1& $\begin{gathered}4900 t^{8} + 58800 t^{6} + 70560 t^{5} + 46620 t^{4} + 10976 t^{3}\\+1288 t^{2} + 48 t + 1\end{gathered}$ \\
+23&1& $\begin{gathered}2500 t^{12} + 17500 t^{10} - 35000 t^{9} + 32625 t^{8} - 11200 t^{7}\\+800 t^{6} + 170 t^{4} - 80 t^{3} + 36 t^{2} - 8 t\\+1\end{gathered}$ \\
+24&1& $\begin{gathered}30625 t^{12} + 367500 t^{10} - 245000 t^{9} + 15750 t^{8} + 58800 t^{7}\\+57050 t^{6} + 4500 t^{5} + 9045 t^{4} + 1120 t^{3} + 126 t^{2}\\+12 t + 1\end{gathered}$ \\
+\bottomrule\end{longtable}}
+The eighteen weight-block sizes are $2,4,6,9,12,16,20,25,30,25,20,16,12,9,6,4,2,1$. The reconstruction program \texttt{degree9\_exact.py} constructs~\eqref{supp:normal-matrix-entry} without importing a saved determinant. The complete factor and block certificate is \texttt{degree9\_strong\_exact.json}, and the unabridged polynomial is \texttt{strong\_g9.txt}. Their product has degree $137$ and the nonzero constant term $c$ displayed above. The squarefree product of the $24$ distinct rational factors has degree $112$. Exact Euclidean checks show that every factor is squarefree and distinct factors are relatively prime. Reduction modulo $1000003$ preserves degree $112$ and gives greatest common divisor one with the derivative. On the full polynomial this reduction preserves degree $137$, gives $\deg\gcd(g_9,g_9')=25$, and gives $\gcd(g_9,g_9',g_9'')=1$. Thus all complex roots have multiplicity at most two. These are exact rational and finite-field calculations; the real slope consequence is proved once in Lemma~\partIref{atlas:finite-slopes}.
+
+\begin{thebibliography}{99}
+\bibitem{BGZZK} S. Basu, S. Guo, R. Zhang, and P. Zorin-Kranich, \emph{A stationary set method for estimating oscillatory integrals}, J. Eur. Math. Soc. \textbf{28} (2026), 2067--2100. \href{https://doi.org/10.4171/JEMS/1506}{doi:10.4171/JEMS/1506}.
+\bibitem{BPR} S. Basu, R. Pollack, and M.-F. Roy, \emph{Algorithms in Real Algebraic Geometry}, second edition, Algorithms and Computation in Mathematics, vol. 10, Springer, Berlin, 2006. \href{https://doi.org/10.1007/3-540-33099-2}{doi:10.1007/3-540-33099-2}.
+\bibitem{low:lojasiewicz} S. Basu and A. Mohammad-Nezhad, \emph{Improved effective {\L}ojasiewicz inequality and applications}, Forum Math. Sigma \textbf{12} (2024), e115. \href{https://doi.org/10.1017/fms.2024.66}{doi:10.1017/fms.2024.66}.
+\bibitem{low:roots} M. Bafna, M. Sudan, S. Velusamy, and D. Xiang, \emph{Elementary analysis of isolated zeroes of a polynomial system}, arXiv:2102.00602, 2021. \url{https://arxiv.org/abs/2102.00602}.
+\bibitem{low:area} R. L. Jerrard, \emph{Area and coarea}, MAT1501 lecture notes, University of Toronto, 7--17 October 2013. \url{https://www.math.toronto.edu/rjerrard/1501/notes/week5-6.pdf}.
+\bibitem{GMOv3} S. Gan, D. Maldague, and C. Oh, \emph{Sharp local smoothing estimates for curve averages}, arXiv:2507.09696v3, 14 July 2026. \url{https://arxiv.org/abs/2507.09696v3}. The numbering cited in the appendix refers to this version.
+\end{thebibliography}
+
+\end{document}
