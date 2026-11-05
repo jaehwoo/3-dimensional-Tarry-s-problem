@@ -10,7 +10,7 @@ The proof has been checked through ChatGPT Work mode, but is yet to be human-ver
 | Paper II | [Read](Complete_Affine_Jets_II.pdf) | [Source](Complete_Affine_Jets_II.tex) | Awaits verification, readability enhancement, and final revision. |
 | Supplement | [Read](Complete_Affine_Jets_Supplement.pdf) | [Source](Complete_Affine_Jets_Supplement.tex) | Awaits verification, readability enhancement, and final revision. |
 
-The manuscript contents have been uploaded unchanged. **Paper I version note:** its LaTeX source includes changes saved on November 2, 2026, while its PDF is the previously saved October 8, 2026 snapshot. The PDF does not incorporate the later source changes; consult the LaTeX source for the current text. The Paper I files have been named `Complete_Affine_Jets_I` here to match the companion manuscripts' cross-reference filenames.
+The manuscripts are uploaded from their saved working versions. **Paper I version note:** its PDF and LaTeX source both include the four authorized correction groups from the November 2, 2026 revision. The corrected PDF replaces the earlier October 8 snapshot. The Paper I files have been named `Complete_Affine_Jets_I` here to match the companion manuscripts' cross-reference filenames.
 
 ## Acknowledgement of the established lower bound
 
