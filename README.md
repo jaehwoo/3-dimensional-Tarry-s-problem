@@ -4,11 +4,11 @@ These working manuscripts are shared to invite thorough discussion among profess
 
 The proof has been checked through ChatGPT Work mode, but is yet to be human-verified. This records AI-assisted verification, with the outstanding work stated below. Lean formalization and verification are still in progress; completed and ongoing work is and will continue to be uploaded to the author's separate public repository, [Tarry-problem-lean-checkpoint-backup](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup). A complete Lean verification of the main theorem is not yet available.
 
-| Manuscript | PDF | LaTeX source | Status |
-| --- | --- | --- | --- |
-| Paper I | [Read](Complete_Affine_Jets_I.pdf) | [Source](Complete_Affine_Jets_I.tex) | Awaits final revision. |
-| Paper II | [Read](Complete_Affine_Jets_II.pdf) | [Source](Complete_Affine_Jets_II.tex) | Awaits verification, readability enhancement, and final revision. |
-| Supplement | [Read](Complete_Affine_Jets_Supplement.pdf) | [Source](Complete_Affine_Jets_Supplement.tex) | Awaits verification, readability enhancement, and final revision. |
+| Manuscript | PDF | LaTeX source | Manuscript status | Lean status |
+| --- | --- | --- | --- | --- |
+| Paper I | [Read](Complete_Affine_Jets_I.pdf) | [Source](Complete_Affine_Jets_I.tex) | Awaits final revision. | In progress; complete verification pending. |
+| Paper II | [Read](Complete_Affine_Jets_II.pdf) | [Source](Complete_Affine_Jets_II.tex) | Awaits verification, readability enhancement, and final revision. | Complete Lean verification pending. |
+| Supplement | [Read](Complete_Affine_Jets_Supplement.pdf) | [Source](Complete_Affine_Jets_Supplement.tex) | Awaits verification, readability enhancement, and final revision. | Complete Lean verification pending. |
 
 The manuscripts are uploaded from their saved working versions. **Paper I version note:** its PDF and LaTeX source both include the four authorized correction groups from the November 2, 2026 revision. The corrected PDF replaces the earlier October 8 snapshot. The Paper I files have been named `Complete_Affine_Jets_I` here to match the companion manuscripts' cross-reference filenames.
 
