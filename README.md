@@ -32,7 +32,7 @@ The manuscripts are uploaded from their saved working versions. **Paper I versio
 
 ## Acknowledgement of the established lower bound
 
-The author has recently become aware that Cheng Bi and Ruichen Sun have established a lower bound for the Tarry convergence exponent in [*L^p integrability of functions with Fourier support on High codimension manifolds*](https://arxiv.org/abs/2610.39739), arXiv:2610.39739. Their established lower bound is acknowledged here. This acknowledgement supplements the literature discussion in the working manuscripts, which still awaits revision.
+The author has recently become aware that Cheng Bi and Ruichen Sun have established a lower bound for the Tarry convergence exponent in [*L^p integrability of functions with Fourier support on High codimension manifolds*](https://arxiv.org/abs/2610.39739), arXiv:2610.39739. Their established lower bound is acknowledged here, and their formulation of the proof seems to streamline our exposition significantly. This acknowledgement supplements the literature discussion in the working manuscripts, which still awaits revision.
 
 ## Contact
 
