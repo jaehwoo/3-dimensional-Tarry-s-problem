@@ -7,6 +7,7 @@ The manuscripts concern the continous Tarry convergence problem for the full tot
 ```math
 p_{3,k}^{\rm Tar}=k+\binom{k+3}{4}.
 ```
+
 Paper I considers the case $k\ge14$, with shared estimates throughout the whole project. Paper II considers the cases $2\le k\le13$. Supplement paper supplies additional materials used by papers I and II. 
 
 The proof has been checked through ChatGPT Work mode, but is yet to be human-verified. This records AI-assisted verification, with the outstanding work stated below. Lean formalization and verification are still in progress; completed and ongoing work is and will continue to be uploaded to the author's separate public repository, [Tarry-problem-lean-checkpoint-backup](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup). A complete Lean verification of the main theorem is not yet available.
