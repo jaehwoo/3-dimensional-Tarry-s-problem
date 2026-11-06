@@ -6,7 +6,7 @@ The proof has been checked through ChatGPT Work mode, but is yet to be human-ver
 
 | Manuscript | PDF | LaTeX source | Manuscript status | Lean status |
 | --- | --- | --- | --- | --- |
-| Paper I (deg >= 14) | [Read](Complete_Affine_Jets_I.pdf) | [Source](Complete_Affine_Jets_I.tex) | Awaits final revision. | In progress; complete verification pending. |
+| Paper I \n(deg >= 14) | [Read](Complete_Affine_Jets_I.pdf) | [Source](Complete_Affine_Jets_I.tex) | Awaits final revision. | In progress; complete verification pending. |
 | Paper II (deg <= 13) | [Read](Complete_Affine_Jets_II.pdf) | [Source](Complete_Affine_Jets_II.tex) | Awaits verification, readability enhancement, and final revision. | Complete Lean verification pending. |
 | Supplement | [Read](Complete_Affine_Jets_Supplement.pdf) | [Source](Complete_Affine_Jets_Supplement.tex) | Awaits verification, readability enhancement, and final revision. | Complete Lean verification pending. |
 
