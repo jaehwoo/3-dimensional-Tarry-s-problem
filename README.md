@@ -16,6 +16,8 @@ We consider geometric decomposition of the frequency side, where the coefficient
 
 For the geometric decomposition, we construct frames independently of $F$, as a dual of the derivative frame, constructed from the derivatives of the parametrizating function of the Parsell-Vinogradov manifold, up to order $k$. The data $(c,B)$ gives the distortion of the dual frames.
 
+Unfortunately, we only obtain an overlapping decomposition, whose incidence counts are controlled via representation-theoretic and geometric arguments. These include filtered Hermite interpolation and transverse derivative coordinates.
+
 ## Manuscript and Lean formalization status
 
 The proof has been checked through ChatGPT Work mode, but is yet to be human-verified. This records AI-assisted verification, with the outstanding work stated below. Lean formalization and verification are still in progress; completed and ongoing work is and will continue to be uploaded to the author's separate public repository, [Tarry-problem-lean-checkpoint-backup](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup). A complete Lean verification of the main theorem is not yet available.
