@@ -5,7 +5,7 @@ These working manuscripts are shared to invite thorough discussion among profess
 The manuscripts concern the continous Tarry convergence problem for the full total-degree Parsell-Vinogradov systems in three variables. We show that for the 3-dimensional Tarry's problem for degree $k$, the critical exponent is
 
 ```math
-p_{3,k}^{\rm Tar}=k+\binom{k+3}{4}.
+p_{3,k}^{\rm Tar}=3+\binom{k+3}{4}.
 ```
 
 Paper I considers the case $k\ge14$, with shared estimates throughout the whole project. Paper II considers the cases $2\le k\le13$. Supplement paper supplies additional materials used by papers I and II.
