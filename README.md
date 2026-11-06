@@ -8,7 +8,9 @@ The manuscripts concern the continous Tarry convergence problem for the full tot
 p_{3,k}^{\rm Tar}=k+\binom{k+3}{4}.
 ```
 
-Paper I considers the case $k\ge14$, with shared estimates throughout the whole project. Paper II considers the cases $2\le k\le13$. Supplement paper supplies additional materials used by papers I and II. 
+Paper I considers the case $k\ge14$, with shared estimates throughout the whole project. Paper II considers the cases $2\le k\le13$. Supplement paper supplies additional materials used by papers I and II.
+
+The main idea is to make use of complete affine jets. Given an affine transformation $T:u\mapsto c+Bu$ with $c\in\mathbb{R}^3$ and $B\in GL_3(\mathbb{R})$, the coefficient vector of $F(c_Bu)-F(c)$ is called the complete affine jet of $F$ at frame $(c,B)$. Translation in $c$ mixes homogeneous parts of $F$ of different degrees via a unitriangular transformation on $V_k$, the quotient vector space of 3-variable polynomials up to degree $k$, with respect to constants. Acting by $B$ preserves each homogeneous degree, and has determinant $(\det B)^{\frac{1}{3}\binom{j+2}{2}}$ on each degree.
 
 The proof has been checked through ChatGPT Work mode, but is yet to be human-verified. This records AI-assisted verification, with the outstanding work stated below. Lean formalization and verification are still in progress; completed and ongoing work is and will continue to be uploaded to the author's separate public repository, [Tarry-problem-lean-checkpoint-backup](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup). A complete Lean verification of the main theorem is not yet available.
 
