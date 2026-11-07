@@ -39,3 +39,4 @@ The author has recently become aware that Cheng Bi and Ruichen Sun have establis
 ## Contact
 
 email: wjhwsh1@snu.ac.kr
+project website: https://jaehwoo.github.io/3-dimensional-Tarry-s-problem/
