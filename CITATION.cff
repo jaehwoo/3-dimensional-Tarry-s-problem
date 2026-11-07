@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: 'These are working manuscripts, not peer-reviewed publications or fully verified mathematical results. When referencing this repository, identify the relevant manuscript and version.'
+authors:
+  - family-names: Woo
+    given-names: Jaehyun
+title: 'Three-dimensional Tarry''s problem: working manuscripts'
+# Initial public availability, not a journal publication date.
+date-released: '2026-11-05'
+url: 'https://github.com/jaehwoo/3-dimensional-Tarry-s-problem'
+preferred-citation:
+  type: unpublished
+  authors:
+    - family-names: Woo
+      given-names: Jaehyun
+  title: 'Three-dimensional Tarry''s problem: working manuscripts'
+  year: 2026
+  url: 'https://github.com/jaehwoo/3-dimensional-Tarry-s-problem'
+  notes: 'Working manuscripts; not peer reviewed. Human verification and complete Lean verification of the main theorem remain pending.'
