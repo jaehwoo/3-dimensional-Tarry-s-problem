@@ -4,7 +4,7 @@ A source guide to the working manuscripts on continuous Tarry's problem in three
 
 **Status:** these are manuscript claims offered for discussion. This index checks selected statements and source locations; it does not independently verify their proofs or establish a complete resolution. Paper I awaits final revision; Paper II and the supplement await verification, readability enhancement, and final revision. Human verification and complete Lean verification remain pending.
 
-Locations checked on **7 November 2026**, against manuscript commit [3e95a6b](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/tree/3e95a6b26cf3ff42b8b5bbee1fc3ae73de70d24b) and Lean archive commit [6714b11](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup/tree/6714b11056f950c6f662df0f296a8e1076c6eba2). Source links below are pinned to these versions.
+Locations checked on **7 November 2026**, against manuscript commit [3e95a6b](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/tree/3e95a6b26cf3ff42b8b5bbee1fc3ae73de70d24b) and Lean archive commit [6714b11](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup/tree/6714b11056f950c6f662df0f296a8e1076c6eba2). Manuscript and Lean source links below are pinned to these versions.
 
 ## 1. What is the claimed Tarry convergence exponent in three variables?
 
@@ -90,7 +90,21 @@ The [supplement source](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem
 | $k=7,8$, three variables | Full-column regular sampling certificates and scale minima: section `supp:seven-eight:verification`, [lines 1367–1387](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/3e95a6b26cf3ff42b8b5bbee1fc3ae73de70d24b/Complete_Affine_Jets_Supplement.tex#L1367-L1387). | Certificate description; no fresh execution. |
 | $9\le k\le13$, three variables | Fixed sampling rows for 22 cases per degree; degree nine uses the lifted row sets: section `low:row-masks`, [lines 1411–1438](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/3e95a6b26cf3ff42b8b5bbee1fc3ae73de70d24b/Complete_Affine_Jets_Supplement.tex#L1411-L1438). | Certificate description; no fresh execution. |
 
-The supplement refers to accompanying `certificates/` JSON files, manifests, and verification scripts. These files are absent from the [checked manuscript repository tree](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/tree/3e95a6b26cf3ff42b8b5bbee1fc3ae73de70d24b); the references are not links to a runnable certificate package in this repository. The supplement, including its certificates, still awaits verification and final revision.
+The supplement refers to accompanying `certificates/` JSON files, manifests, and verification scripts. The **7 November 2026** check found none of those files. The supplement, including its certificates, still awaits verification and final revision. [Checked manuscript repository tree](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/tree/3e95a6b26cf3ff42b8b5bbee1fc3ae73de70d24b).
+
+### Degree-six fixed-graph normal determinant checker
+
+Added on **11 November 2026**, the standalone checker reconstructs the $83\times83$ matrix in 12 weight blocks of sizes $2,4,6,9,12,16,12,9,6,4,2,1$. It compares each block determinant and the signed full determinant with the printed factorizations in $\mathbb Z[t]$ and checks $\deg g_6=35$ and $g_6(0)=-56623104$. It also compares all 33 degree and leading coefficient pairs in the unnormalized Euclidean sequence starting with $R=\prod_{j=1}^{11}f_j$ and $R'$ over $\mathbb F_{101}$.
+[`certificates/verify_degree6_normal.py`](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/5adb4b9bf7c635c0e654e42daa0da3da739dcf67/certificates/verify_degree6_normal.py) · [Supplement `supp:normal-factors` and `supp:g6-factors`](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/3e95a6b26cf3ff42b8b5bbee1fc3ae73de70d24b/Complete_Affine_Jets_Supplement.tex#L1440-L1504).
+
+From the repository root, use Python 3.9 or newer to install SymPy and run the checker.
+
+```sh
+python3 -m pip install sympy==1.14.0
+python3 certificates/verify_degree6_normal.py
+```
+
+The checker uses data built into the script. The separate JSON certificate packages and manifests cited for other degrees remain absent from the [checked repository tree](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/tree/5adb4b9bf7c635c0e654e42daa0da3da739dcf67).
 
 ## 5. Which lower bound comes from established literature?
 
@@ -115,6 +129,7 @@ The [public Lean source archive](https://github.com/jaehwoo/Tarry-problem-lean-c
 | Manuscript statement | The stated claim and source location were checked; its proof was not thereby verified. |
 | Conditional Lean theorem | A declaration has explicit hypotheses; its mathematical scope is limited to those hypotheses and its actual conclusion. |
 | Historical report | A saved record of an earlier run, its assumptions, and its unresolved obligations; not a fresh check of the current sources. |
+| Runnable finite checker | Source inspection identifies the degree-six fixed-graph calculation as the scope of this checker. Verification of the manuscripts' geometric estimates and convergence theorems remains pending. |
 | Fresh compilation | No Lean compilation, certificate execution, or new axiom audit was performed for this index. |
 | Full manuscript verification | Not established by this index or by the module count; complete verification remains pending. |
 
