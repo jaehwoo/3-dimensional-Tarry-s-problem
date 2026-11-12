@@ -12,6 +12,10 @@ Paper I considers the case $k\ge14$, with shared estimates throughout the whole 
 
 [Research index: Tarry's problem, Parsell–Vinogradov system, complete affine jets, and L^p integrability](RESEARCH_INDEX.md) — statements, source locations, literature, and verification status.
 
+[![Degree-six finite-certificate check](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/actions/workflows/verify-degree6-normal.yml/badge.svg?branch=main)](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/actions/workflows/verify-degree6-normal.yml)
+
+The badge reports the status of the degree-six finite-certificate checker on `main`. Human verification and complete Lean verification of the proposed Tarry convergence theorem remain pending.
+
 ## Main idea of the proof
 
 We consider geometric decomposition of the frequency side, where the coefficients of the polynomial phase function lives in. The main ingredient is the use of complete affine jets. Given an affine transformation $T:u\mapsto c+Bu$ with $c\in\mathbb{R}^3$ and $B\in GL_3(\mathbb{R})$, the coefficient vector of $F(c+Bu)-F(c)$ is called the complete affine jet of $F$ at frame $(c,B)$. Translation in $c$ mixes homogeneous parts of $F$ of different degrees via a unitriangular transformation on $V_k$, the quotient vector space of 3-variable polynomials up to degree $k$, with respect to constants. Acting by $B$ preserves each homogeneous degree, and has determinant $(\det B)^{\frac{j}{3}\binom{j+2}{2}}$ on each degree.

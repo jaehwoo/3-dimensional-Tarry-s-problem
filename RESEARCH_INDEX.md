@@ -104,6 +104,8 @@ python3 -m pip install sympy==1.14.0
 python3 certificates/verify_degree6_normal.py
 ```
 
+**First public CI execution (11 November 2026 UTC).** At commit `1d5516f`, the `Run checker` step succeeded with Python 3.11 and `sympy==1.14.0` and printed `PASS: degree-six fixed-graph finite certificate`. The run records exact-arithmetic checks against the script's embedded expectations. Human verification of the geometric arguments and complete Lean verification of the proposed Tarry convergence theorem remain pending. Agreement with later manuscript revisions requires a separate comparison. [GitHub Actions run #1](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/actions/runs/43123858368).
+
 The checker uses data built into the script. The separate JSON certificate packages and manifests cited for other degrees remain absent from the [checked repository tree](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/tree/5adb4b9bf7c635c0e654e42daa0da3da739dcf67).
 
 ## 5. Which lower bound comes from established literature?
