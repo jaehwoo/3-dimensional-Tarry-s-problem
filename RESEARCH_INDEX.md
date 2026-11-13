@@ -104,7 +104,20 @@ python3 -m pip install sympy==1.14.0
 python3 certificates/verify_degree6_normal.py
 ```
 
-**First public CI execution (11 November 2026 UTC).** At commit `1d5516f`, the `Run checker` step succeeded with Python 3.11 and `sympy==1.14.0` and printed `PASS: degree-six fixed-graph finite certificate`. The run records exact-arithmetic checks against the script's embedded expectations. Human verification of the geometric arguments and complete Lean verification of the proposed Tarry convergence theorem remain pending. Agreement with later manuscript revisions requires a separate comparison. [GitHub Actions run #1](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/actions/runs/43123858368).
+**First public CI execution (11 November 2026 UTC).** At commit `1d5516f`, the `Run checker` step succeeded with Python 3.11 and `sympy==1.14.0` and printed `PASS: degree-six fixed-graph finite certificate`. The run records exact-arithmetic checks against the script's embedded expectations. Human verification of the geometric arguments and complete Lean verification of the proposed Tarry convergence theorem remain pending. [GitHub Actions run #1](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/actions/runs/43123858368).
+
+**Source-consistency guard (13 November 2026 UTC).** At commit `cc2c281`, the second public CI run started at 05:36 UTC and passed `Check manuscript source consistency`, `Test source consistency guard` (26 tests), and `Run checker`. The workflow's push and pull request path filters include the Supplement and Paper I LaTeX files. [Implementation commit](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/commit/cc2c28164c36429d4083d4fe07144bb156ad26ed) · [GitHub Actions run #2](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/actions/runs/43373157112).
+
+The guard parses a restricted subset of LaTeX and structurally compares the Supplement's 11 factor polynomials, 12 block-determinant records (weight, size, and signed factorization), and 33 leading coefficients of the Euclidean sequence over $\mathbb F_{101}$ with literal constants extracted from the standalone checker's Python source. Unsupported syntax in these data blocks fails the check. [Source guard](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/cc2c28164c36429d4083d4fe07144bb156ad26ed/certificates/check_degree6_source.py).
+
+Separately, SHA-256 fingerprints cover the remaining Supplement text from `supp:normal-factors` to just before `supp:g7-factors`, plus Paper I's jet-index definition (`def:jet-indices`) and ordinary-row selection rule (`surf:ordinary-list`). A match indicates only that the fingerprinted text is unchanged from the `c6501c2` baseline after line-ending normalization. A mismatch requires source review before any baseline update, even for formatting-only edits. Mathematical verification of the formulas and comparison of revisions outside these regions require separate checks. [Fingerprint baseline](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/tree/c6501c2db457bffded229d3d0aa8674a37eae904).
+
+The guard and regression tests use only the Python standard library. The tests exercise both checks on temporary copies. From the repository root, use Python 3.11 as in CI. [Regression tests](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/cc2c28164c36429d4083d4fe07144bb156ad26ed/certificates/test_degree6_source.py).
+
+```sh
+python3.11 certificates/check_degree6_source.py
+python3.11 certificates/test_degree6_source.py
+```
 
 The checker uses data built into the script. The separate JSON certificate packages and manifests cited for other degrees remain absent from the [checked repository tree](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/tree/5adb4b9bf7c635c0e654e42daa0da3da739dcf67).
 
