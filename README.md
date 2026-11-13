@@ -2,7 +2,7 @@
 
 These working manuscripts are shared to invite thorough discussion among professional harmonic analysts. The author does not deserve any credit for uploading them. The purpose of this upload is to encourage careful examination and discussion, rather than to declare a resolution of Tarry's problem.
 
-The manuscripts concern the continous Tarry convergence problem for the full total-degree Parsell-Vinogradov systems in three variables. We show that for the 3-dimensional Tarry's problem for degree $k$, the critical exponent is
+The manuscripts concern the continuous Tarry convergence problem for the full total-degree Parsell-Vinogradov systems in three variables. The proposed critical exponent for the 3-dimensional Tarry's problem for degree $k$ is
 
 ```math
 p_{3,k}^{\rm Tar}=3+\binom{k+3}{4}.
@@ -27,6 +27,8 @@ Unfortunately, we only obtain an overlapping decomposition, whose incidence coun
 ## Manuscript and Lean formalization status
 
 The proof has been checked through ChatGPT Work mode, but is yet to be human-verified. This records AI-assisted verification, with the outstanding work stated below. Lean formalization and verification are still in progress; completed and ongoing work is and will continue to be uploaded to the author's separate public repository, [Tarry-problem-lean-checkpoint-backup](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup). A complete Lean verification of the main theorem is not yet available.
+
+On 13 November 2026, fresh Lean builds and declaration audits passed for three complete Paper I statements: parabolic collars (I980–I993), derivative good points and curved strips (I3202–I3218), and the algebraic surface packing cutoff (I3312–I3317). The [Paper I verification page](https://jaehwoo.github.io/3-dimensional-Tarry-s-problem/paper-i.html#lean-verification) gives exact statement and proof lines. The [public checkpoint](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup/tree/main/verification-20261113-second-portfolio) includes the Lean sources and verification report.
 
 | Manuscript | PDF | LaTeX source | Manuscript status | Lean status |
 | --- | --- | --- | --- | --- |

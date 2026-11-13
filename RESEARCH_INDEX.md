@@ -135,4 +135,14 @@ The [public Lean source archive](https://github.com/jaehwoo/Tarry-problem-lean-c
 | Fresh compilation | No Lean compilation, certificate execution, or new axiom audit was performed for this index. |
 | Full manuscript verification | Not established by this index or by the module count; complete verification remains pending. |
 
+### Paper I statements verified on 13 November 2026
+
+These three complete statements passed fresh Lean 4.19 builds and the full declaration audit. The [public checkpoint](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup/tree/main/verification-20261113-second-portfolio) gives the Lean sources, verification report, and retained published theorem inputs. Complete Lean verification of the main theorem remains pending.
+
+| Result | Statement | Proof |
+| --- | --- | --- |
+| Parabolic collars | [I980–I993](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/cc2c28164c36429d4083d4fe07144bb156ad26ed/Complete_Affine_Jets_I.tex#L980-L993) | [I994–I1018](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/cc2c28164c36429d4083d4fe07144bb156ad26ed/Complete_Affine_Jets_I.tex#L994-L1018) |
+| Derivative good points and curved strips | [I3202–I3218](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/cc2c28164c36429d4083d4fe07144bb156ad26ed/Complete_Affine_Jets_I.tex#L3202-L3218) | [I3219–I3221](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/cc2c28164c36429d4083d4fe07144bb156ad26ed/Complete_Affine_Jets_I.tex#L3219-L3221) |
+| Algebraic surface packing cutoff | [I3312–I3317](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/cc2c28164c36429d4083d4fe07144bb156ad26ed/Complete_Affine_Jets_I.tex#L3312-L3317) | [I3318–I3340](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/cc2c28164c36429d4083d4fe07144bb156ad26ed/Complete_Affine_Jets_I.tex#L3318-L3340) |
+
 This index provides navigation for researchers and search tools. It does not guarantee indexing or retrieval by any external LLM.
