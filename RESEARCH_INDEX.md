@@ -158,4 +158,16 @@ These three complete statements passed fresh Lean 4.19 builds and the full decla
 | Derivative good points and curved strips | [I3202–I3218](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/cc2c28164c36429d4083d4fe07144bb156ad26ed/Complete_Affine_Jets_I.tex#L3202-L3218) | [I3219–I3221](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/cc2c28164c36429d4083d4fe07144bb156ad26ed/Complete_Affine_Jets_I.tex#L3219-L3221) |
 | Algebraic surface packing cutoff | [I3312–I3317](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/cc2c28164c36429d4083d4fe07144bb156ad26ed/Complete_Affine_Jets_I.tex#L3312-L3317) | [I3318–I3340](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/cc2c28164c36429d4083d4fe07144bb156ad26ed/Complete_Affine_Jets_I.tex#L3318-L3340) |
 
+### Paper II lemmas verified on 13 November 2026
+
+These five complete lemmas passed fresh Lean 4.19.0 builds, independent manuscript review, and declaration audits. The [checkpoint](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup/tree/main/verification-20261113-paper-ii-portfolio) contains the Lean sources and verification records. Complete Lean verification of the main theorem remains pending.
+
+| Result | Statement | Proof |
+| --- | --- | --- |
+| Block-triangular degree lift | [II1567–II1569](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/f97c290f8e349f8de01eea46cc5d7a751b28206e/Complete_Affine_Jets_II.tex#L1567-L1569) | [II1570–II1576](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/f97c290f8e349f8de01eea46cc5d7a751b28206e/Complete_Affine_Jets_II.tex#L1570-L1576) |
+| Quartic connection identity | [II2472–II2489](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/f97c290f8e349f8de01eea46cc5d7a751b28206e/Complete_Affine_Jets_II.tex#L2472-L2489) | [II2490–II2492](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/f97c290f8e349f8de01eea46cc5d7a751b28206e/Complete_Affine_Jets_II.tex#L2490-L2492) |
+| A band interval in the coefficient map | [II4342–II4348](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/f97c290f8e349f8de01eea46cc5d7a751b28206e/Complete_Affine_Jets_II.tex#L4342-L4348) | [II4349–II4351](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/f97c290f8e349f8de01eea46cc5d7a751b28206e/Complete_Affine_Jets_II.tex#L4349-L4351) |
+| An externally conditioned curved seed | [II4355–II4369](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/f97c290f8e349f8de01eea46cc5d7a751b28206e/Complete_Affine_Jets_II.tex#L4355-L4369) | [II4370–II4376](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/f97c290f8e349f8de01eea46cc5d7a751b28206e/Complete_Affine_Jets_II.tex#L4370-L4376) |
+| Two quadratic charts cover every first slope | [II4659–II4669](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/f97c290f8e349f8de01eea46cc5d7a751b28206e/Complete_Affine_Jets_II.tex#L4659-L4669) | [II4670–II4672](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/blob/f97c290f8e349f8de01eea46cc5d7a751b28206e/Complete_Affine_Jets_II.tex#L4670-L4672) |
+
 This index provides navigation for researchers and search tools. It does not guarantee indexing or retrieval by any external LLM.

@@ -30,10 +30,12 @@ The proof has been checked through ChatGPT Work mode, but is yet to be human-ver
 
 On 13 November 2026, fresh Lean builds and declaration audits passed for three complete Paper I statements: parabolic collars (I980–I993), derivative good points and curved strips (I3202–I3218), and the algebraic surface packing cutoff (I3312–I3317). The [Paper I verification page](https://jaehwoo.github.io/3-dimensional-Tarry-s-problem/paper-i.html#lean-verification) gives exact statement and proof lines. The [public checkpoint](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup/tree/main/verification-20261113-second-portfolio) includes the Lean sources and verification report.
 
+On 13 November 2026, five complete Paper II lemmas passed fresh Lean builds and declaration audits. The [Paper II verification page](https://jaehwoo.github.io/3-dimensional-Tarry-s-problem/paper-ii.html#lean-verification) lists the statement and proof lines. The [checkpoint](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup/tree/main/verification-20261113-paper-ii-portfolio) contains the Lean sources and verification records.
+
 | Manuscript | PDF | LaTeX source | Manuscript status | Lean status |
 | --- | --- | --- | --- | --- |
 | Paper I (deg >= 14) | [Read](Complete_Affine_Jets_I.pdf) | [Source](Complete_Affine_Jets_I.tex) | Awaits final revision. | In progress; complete verification pending. |
-| Paper II (deg <= 13) | [Read](Complete_Affine_Jets_II.pdf) | [Source](Complete_Affine_Jets_II.tex) | Awaits verification, readability enhancement, and final revision. | Complete Lean verification pending. |
+| Paper II (deg <= 13) | [Read](Complete_Affine_Jets_II.pdf) | [Source](Complete_Affine_Jets_II.tex) | Awaits verification, readability enhancement, and final revision. | Five lemmas verified. Complete verification pending. |
 | Supplement | [Read](Complete_Affine_Jets_Supplement.pdf) | [Source](Complete_Affine_Jets_Supplement.tex) | Awaits verification, readability enhancement, and final revision. | Complete Lean verification pending. |
 
 The manuscripts are uploaded from their saved working versions. **Paper I version note:** its PDF and LaTeX source both include the four authorized correction groups from the November 2, 2026 revision. The corrected PDF replaces the earlier October 8 snapshot. The Paper I files have been named `Complete_Affine_Jets_I` here to match the companion manuscripts' cross-reference filenames.
