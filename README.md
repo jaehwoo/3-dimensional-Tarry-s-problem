@@ -38,6 +38,8 @@ On 13 November 2026, five complete Paper II lemmas passed fresh Lean builds and 
 | Paper II (deg <= 13) | [Read](Complete_Affine_Jets_II.pdf) | [Source](Complete_Affine_Jets_II.tex) | Awaits verification, readability enhancement, and final revision. | Five lemmas verified. Complete verification pending. |
 | Supplement | [Read](Complete_Affine_Jets_Supplement.pdf) | [Source](Complete_Affine_Jets_Supplement.tex) | Awaits verification, readability enhancement, and final revision. | Complete Lean verification pending. |
 
+On 21 November 2026, Lean 4.19.0 verified the revised cap and transverse-collar portions of Paper I, Lemmas 3.16–3.18 and Theorem 3.21, and their use in Proposition 6.4 under the stated hypotheses. The audit of 34 public declarations found only `propext`, `Classical.choice`, and `Quot.sound`. [Verification report (PDF)](verification/Paper_I_Collar_Lean_Verification.pdf) · [Lean sources and audit](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup/tree/8bc3781e18bc13ec128e829011d42923fabcd91c/verification-20261121-collar)
+
 The manuscripts are uploaded from their saved working versions. Paper I was revised on 21 November 2026 to specify the cap used for short projections and the flux length used for transverse-collar preparation. The PDF and LaTeX source include this revision and the four correction groups of 2 November. The Paper I files have been named `Complete_Affine_Jets_I` here to match the companion manuscripts' cross-reference filenames.
 
 ## Acknowledgement of the established lower bound

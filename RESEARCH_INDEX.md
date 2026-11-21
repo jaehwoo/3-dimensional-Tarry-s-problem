@@ -4,6 +4,8 @@ A source guide to the working manuscripts on continuous Tarry's problem in three
 
 **Status:** these are manuscript claims offered for discussion. This index checks selected statements and source locations; it does not independently verify their proofs or establish a complete resolution. Paper I awaits final revision; Paper II and the supplement await verification, readability enhancement, and final revision. Human verification and complete Lean verification remain pending.
 
+On 21 November 2026, Lean 4.19.0 verified the revised cap and transverse-collar portions of Paper I, Lemmas 3.16–3.18 and Theorem 3.21, and their use in Proposition 6.4 under the stated hypotheses. The audit of 34 public declarations found only `propext`, `Classical.choice`, and `Quot.sound`. [Verification report (PDF)](verification/Paper_I_Collar_Lean_Verification.pdf) · [Lean sources and audit](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup/tree/8bc3781e18bc13ec128e829011d42923fabcd91c/verification-20261121-collar)
+
 Locations checked on **7 November 2026**, against manuscript commit [3e95a6b](https://github.com/jaehwoo/3-dimensional-Tarry-s-problem/tree/3e95a6b26cf3ff42b8b5bbee1fc3ae73de70d24b) and Lean archive commit [6714b11](https://github.com/jaehwoo/Tarry-problem-lean-checkpoint-backup/tree/6714b11056f950c6f662df0f296a8e1076c6eba2). Manuscript and Lean source links below are pinned to these versions.
 
 ## 1. What is the claimed Tarry convergence exponent in three variables?
