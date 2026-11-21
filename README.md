@@ -38,7 +38,7 @@ On 13 November 2026, five complete Paper II lemmas passed fresh Lean builds and 
 | Paper II (deg <= 13) | [Read](Complete_Affine_Jets_II.pdf) | [Source](Complete_Affine_Jets_II.tex) | Awaits verification, readability enhancement, and final revision. | Five lemmas verified. Complete verification pending. |
 | Supplement | [Read](Complete_Affine_Jets_Supplement.pdf) | [Source](Complete_Affine_Jets_Supplement.tex) | Awaits verification, readability enhancement, and final revision. | Complete Lean verification pending. |
 
-The manuscripts are uploaded from their saved working versions. **Paper I version note:** its PDF and LaTeX source both include the four authorized correction groups from the November 2, 2026 revision. The corrected PDF replaces the earlier October 8 snapshot. The Paper I files have been named `Complete_Affine_Jets_I` here to match the companion manuscripts' cross-reference filenames.
+The manuscripts are uploaded from their saved working versions. Paper I was revised on 21 November 2026 to specify the cap used for short projections and the flux length used for transverse-collar preparation. The PDF and LaTeX source include this revision and the four correction groups of 2 November. The Paper I files have been named `Complete_Affine_Jets_I` here to match the companion manuscripts' cross-reference filenames.
 
 ## Acknowledgement of the established lower bound
 
